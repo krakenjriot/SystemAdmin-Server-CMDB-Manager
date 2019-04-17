@@ -58,19 +58,6 @@ if($_SESSION['access_lvl']==0) {
 	
 
 	
-	//if query does not have a domain suffix process below code
-
-		/////////////////////////////////////////////////////////////
-		/////////////////////////////////////////////////////////////
-		//$domain_suffix = "";		
-		//$pingresult = 0;		
-		//$domain_suffix = "";
-		
-		//foreach(array('nwc.com.sa','dev.hq.nwc','dmz.nwc') as $a){
-		//	$pingresult = shell_exec('C:\xampp\htdocs\hwinv\batchfile\pingme.bat '.$query.'.'.$a);
-		//	if($pingresult==1){ $domain_suffix = $a; break; }			
-		//}		
-		/////////////////////////////////////////////////////////////		
 		
 		
 		/////////////////////////////////////////////////////////////
@@ -416,10 +403,20 @@ if($_SESSION['access_lvl']==0) {
   </head>
 
   <body>
+	<?php
+	
+		if($access_lvl == 1){
+			$tag = "Operator";
+		} 
 
+		if($access_lvl > 1){
+			$tag = "Admin";
+		} 
+		
+	?>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Testastika Console v1.0</a>
+      <a class="navbar-brand" href="#">Testastika Console v1.0 (<?php echo $tag; ?>)</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -435,67 +432,96 @@ if($_SESSION['access_lvl']==0) {
 			
 			<?php
 			
-				
-		
-			
-			
-
-
-
-
-
-
-
-
-
-			
+							
 			include_once("menu.php");
 			
 
 	///////////////////////////////////////////////////////	
-	
-			$sdip = gethostbyname($query);
-			///////////////////////////////////////////
-			echo "</br>FQDN: $query";
-			echo "</br>IPv4: $sdip";
-			echo "</br>Operating System Name: $osname";
-			echo "</br>Database Record: $resultCheck";
-		/////////////////////////////////////////////////////////////
-		if($pingresult==0 && $access_lvl==1){	
-			echo "</br>Ping Test: $netstat";
-			echo "</br>Your Access Level: End User Support";	
+	///////////////////////////////////////////////////////	
 			if($server==0){//						
 				//echo "</br>(You are authorized to view this node!)";
 				//allowed 				
-				echo "</br>Machine Type: Workstation!";	
+				$server_type = "Workstation";				
+			}	
+			if($server==1){
+			//					
+				$server_type = "Server";								
+			}				///////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////	
+	///////////////////////////////////////////////////////	
+	
+			$sdip = gethostbyname($query);
+			///////////////////////////////////////////
+			//if($resultCheck == 1) {echo $xx = "(Database Record Exist)"; }
+			//else { echo $xx = "(Database Record Empty!)"; }
+			echo "<b>".$server_type.": </b>". strtoupper($query);
+			echo " / ".ucwords($osname);
+			echo " / $sdip";
+			echo " $netstat";
+
+			
+			//echo "</br>Database Record: $resultCheck";
+		/////////////////////////////////////////////////////////////
+		if($pingresult==0 && $access_lvl==1){	
+			
+			
+			if($server==0){//						
+				//echo "</br>(You are authorized to view this node!)";
+				//allowed 				
+				
 				//echo $menu_000;
 				if($resultCheck)echo $menu_showdatabaselink;
 			}	
 			if($server==1){
 			//					
-				echo "</br>View Info: Access Denied";
-				echo "</br>Machine Type: Server";	
+				echo "</br><b>View Info: </b>Access Denied";
+				
 				//echo $menu_000;
 			}
 			
 		}	
-		////////////////////////////////////////////////////////////			
+		
+		
+		
+		
+		////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////
+		include_once 'libs/dbh.inc.php';
+		include_once 'func/func.php';
+		
+		$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$query'";
+		$result = mysqli_query($conn, $sql);
+		$resultCheck = mysqli_num_rows($result);		
+		if($row = mysqli_fetch_assoc($result)){
+			
+			echo "</br><b>Role Name: </b>". $row['role_name'];
+			echo "<b> / Functions: </b>". $row['role_function']; 
+			echo "<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='#'>EDIT</a>&nbsp;&nbsp;</span></font>";
+			echo "</br><b>Role Owners: </b>". $row['role_owners']; 
+			echo "<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='#'>EDIT</a>&nbsp;&nbsp;</span></font>";
+
+		}			
+		
+	
+		/////////////////////////////////////////////////////////////			
+		/////////////////////////////////////////////////////////////			
 		/////////////////////////////////////////////////////////////
 		if($pingresult==1 && $access_lvl==1){	
-			echo "</br>Ping Test: $netstat";
-			echo "</br>Your Access Level: End User Support";	
+			
+			
 			if($server==0){//						
 				//echo "</br>(You are authorized to view this node!)";
 				//allowed 				
-				echo "</br>Machine Type: Workstation!";	
+				
 				//echo $menu_000;
 				echo $menu_reachable;	
 				if($resultCheck)echo $menu_showdatabaselink;
 			}	
 			if($server==1){
 			//					
-				echo "</br>View Info: Access Denied";
-				echo "</br>Machine Type: Server";	
+				echo "</br><b>View Info: </b>Access Denied";
+				
 				//echo $menu_000;
 			}	
 				
@@ -506,18 +532,18 @@ if($_SESSION['access_lvl']==0) {
 
 		/////////////////////////////////////////////////////////////
 		if($pingresult==0 && $access_lvl>1){	
-			echo "</br>Ping Test: $netstat";
-			echo "</br>Your Access Level: Server Admins";	
+			
+				
 			if($server==0){//						
 				//echo "</br>(You are authorized to view this node!)";
 				//allowed 				
-				echo "</br>Machine Type: Workstation";	
+				
 				
 			}	
 			if($server==1){
 			//					
 				//echo "</br>Warning: You are NOT authorized to view this node!";
-				echo "</br>Machine Type: Server";	
+				
 				
 			}	
 				if($resultCheck)echo $menu_showdatabaselink;
@@ -525,17 +551,17 @@ if($_SESSION['access_lvl']==0) {
 		////////////////////////////////////////////////////////////			
 		/////////////////////////////////////////////////////////////
 		if($pingresult==1 && $access_lvl>1){	
-			echo "</br>Ping Test: $netstat";	
-			echo "</br>Your Access Level: Server Admins";	
+			
+			
 			if($server==0){//						
 				//echo "</br>(You are authorized to view this node!)";
 				//allowed 				
-				echo "</br>Machine Type: Workstation";					
+								
 			}	
 			if($server==1){
 			//					
 				//echo "</br>Warning: You are NOT authorized to view this node!";
-				echo "</br>Machine Type: Server";					
+				
 			}				
 			
 						echo $menu_reachable;

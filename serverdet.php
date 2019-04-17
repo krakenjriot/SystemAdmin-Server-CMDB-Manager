@@ -493,7 +493,7 @@ if($_SESSION['access_lvl']==0) {
 		////////////////////////////////////////////////////////////
 		include_once 'libs/dbh.inc.php';
 		include_once 'func/func.php';
-		
+		//
 		$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$query'";
 		$result = mysqli_query($conn, $sql);
 		$resultCheck = mysqli_num_rows($result);		

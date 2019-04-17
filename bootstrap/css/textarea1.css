@@ -1,0 +1,13 @@
+textarea {
+   resize: none;
+}
+textarea {
+    width: 500px;
+    height: 600px;
+}
+textarea { 
+    resize: vertical; 
+}
+textarea { 
+    resize: horizontal; 
+}

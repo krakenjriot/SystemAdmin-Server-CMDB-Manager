@@ -1,0 +1,328 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/********************************************/
+
+body {
+    background-color: #ccc;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*
+.outer-div {
+    height: 400px;
+    width: 400px;
+
+    margin: 0 auto;
+
+    background-color: #f1f1f1;
+    box-shadow: 0 3px 6px rgba(0,0,0,16),0 3px 6px
+    rgba(0,0,0,23);
+}
+
+
+.inner-div {
+    height: 400px;
+    width: 400px;
+
+    margin: 0 auto;
+
+    background-color: #ffffff;
+    box-shadow: 0 3px 6px rgba(0,0,0,16),0 3px 6px
+    rgba(0,0,0,23);
+}
+*/
+
+.outer-divxxx {
+  background-color: #f1f1f1;
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+#frameWrap {
+    position:relative;
+    height: 360px;
+    width: 640px;
+    border: 1px solid #777777;
+    background:#f0f0f0;
+    box-shadow:0px 0px 10px #777777;
+}
+
+#iframe1 {
+    height: 360px;
+    width: 640px;
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+/*
+#loader1 {
+    position:absolute;
+    left:40%;
+    top:35%;
+    border-radius:20px;
+    padding:25px;
+    border:1px solid #777777;
+    background:#ffffff;
+    box-shadow:0px 0px 10px #777777;
+}
+*/
+
+#loader1 {
+  background-color: #ffffff;
+  position: absolute;
+  border-radius:20px;
+  padding:25px;
+  border:1px solid #777777;
+  background:#ffffff;
+  box-shadow:0px 0px 10px #777777;
+
+  width: 400px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+body {
+    background-color: #f1f1f1;
+    font-family: "Courier New", Courier, monospace;
+    font-size:18px;
+}
+
+/*******************/
+.main-container{
+  margin: 0;
+
+}
+.top-bar{
+position: relative;
+/*background-color: green;*/
+width: 100%;
+height: 50px;
+}
+
+.top-bar span {
+position: relative;
+top: 15px;
+left: 15px;
+}
+
+.menulink{
+position: relative;
+top: 0px;
+left: 15px;
+}
+
+.menulink ul li {
+position: relative;
+margin-top: 5px;
+left: 15px;
+}
+
+.result {
+position: relative;
+top: 0px;
+left: 0px;
+}
+
+
+.left-side{
+position: relative;
+/*background-color: red;*/
+width: 40%;
+height: 600px;
+float: left;
+overflow: hidden;
+}
+.right-side{
+position:relative;
+/*background-color: blue;*/
+width: 60%;
+height: 600px;
+float: left;
+overflow: hidden;
+}
+
+.bottom-bar{
+position:absolute;
+/*background-color: yellow;*/
+width: 100%;
+height: 25px;
+bottom: 0px;
+}
+
+/*
+#frameWrap {
+  position: relative;
+  width: 80%;
+  height: 500px;
+
+}
+
+#divFrameHolder {
+  position: relative;
+  width: 80%;
+  height: 500px;
+}
+*/
+/*
+.iframe_x {
+position:relative;
+top:0px;
+left:0px;
+bottom:0px;
+right:0px;
+width:100%;
+height:100%;
+border:none;
+margin:0;
+padding:0;
+background-color: yellow;
+}
+
+.iframe1 {
+position:relative;
+top:0px;
+left:0px;
+bottom:0px;
+right:0px;
+width:100%;
+height:100%;
+border:none;
+margin:0;
+padding:0;
+background-color: yellow;
+}
+*/
+iframe {
+         position:relative;
+        }
+		
+.load{
+            background-image: url("http://jimpunk.net/Loading/wp-content/uploads/loading2.gif");   
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            position: absolute;
+            width:100%;
+            height:100%;
+        }
+
+

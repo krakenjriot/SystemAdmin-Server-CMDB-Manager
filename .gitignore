@@ -1,0 +1,8 @@
+*.csv
+rdpfile/
+*.bak
+*.log
+log/
+logonstamp/
+batchfile/report/
+tmp/

@@ -1,0 +1,294 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+/********************************************/
+
+body {
+    /*background-color: #cccc;*/
+	background: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*
+.outer-div {
+    height: 400px;
+    width: 400px;
+
+    margin: 0 auto;
+
+    background-color: #f1f1f1;
+    box-shadow: 0 3px 6px rgba(0,0,0,16),0 3px 6px
+    rgba(0,0,0,23);
+}
+
+
+.inner-div {
+    height: 400px;
+    width: 400px;
+
+    margin: 0 auto;
+
+    background-color: #ffffff;
+    box-shadow: 0 3px 6px rgba(0,0,0,16),0 3px 6px
+    rgba(0,0,0,23);
+}
+
+*/
+
+/*
+.outer-div {
+  background-color: #f1f1f1;
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+*/
+/*****************************************************************/
+form {
+  background-color: #f1f1f1;
+  position: absolute;
+  width: 400px;
+  height: 580px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-family: "Courier New", Courier, monospace;
+  font-size:18px;
+}
+.top-bar {
+  background-color:#BCCE98;
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+
+.top-bar p {
+position: relative;
+top: 18px;
+}
+
+
+
+.logo {
+  background-color: #DAE9BC;
+  position: relative;
+  width: 300px;
+  height: 200px;
+  left: 50px;
+  margin-top: 20px;
+}
+
+.logo p {
+  text-align: center;
+  width: 250px;
+}
+
+#logonimg {
+position:relative;
+display: block /*for the img inside your div */  
+margin-left: auto 
+margin-right: auto 
+height=50px;
+width=50px;
+}
+
+
+.logo .header {
+position: relative;
+top: 10px;
+font-size:25px;
+font-weight: bold;
+color: red
+}
+
+.logo .msg {
+position: relative;
+top: 25px;
+margin-top: 25px;
+}
+
+
+
+
+input {
+  background-color: #fff;
+  text-align: center;
+  font-size:18px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.email input {
+/*background-color: #fff;*/
+  position: relative;
+  width: 300px;
+  height: 50px;
+  margin-top: 20px;
+}
+
+.password input{
+  /*background-color: #fff;*/
+  position: relative;
+  width: 300px;
+  height: 50px;
+  margin-top: 5px;
+}
+
+.signin input {
+  position: relative;
+  width: 190px;
+  height: 50px;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+}
+
+/*.signup input {
+  position: relative;
+  width: 190px;
+  height: 50px;
+  border: none;
+  outline: none;
+  margin-top: 5px;
+}*/
+.signup  {
+position: relative;
+margin-top: 28px;
+}
+
+.fpass  {
+position: relative;
+margin-top: 10px;
+
+}
+
+.bottom-bar {
+  background-color:#BCCE98;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-top: 15px;
+}
+
+.bottom-bar p {
+  position: relative;
+  font-size: 12px;
+  top: 18px;
+}
+
+/********for start.php***********/

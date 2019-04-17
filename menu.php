@@ -31,3 +31,17 @@ $menu_showdatabaselink =
 <li><a href='deleteserver.php?query=$hostname&domain_suffix=$domain_suffix'>Permanently Delete Records</a></li>
 <li><a href='showData1.php?query=$hostname&domain_suffix=$domain_suffix' target='_blank'>Show Static Data (Database)</a></li>
 </ul>";
+
+
+
+$menu_showdata = 
+"<ul>
+
+<li><a href='showData1.php?query=$hostname&domain_suffix=$domain_suffix' target='_blank'>Show Static Data (Database)</a></li>
+</ul>";
+
+$menu_deleterecord = 
+"<ul>
+<li><a href='deleteserver.php?query=$hostname&domain_suffix=$domain_suffix'>Permanently Delete Records</a></li>
+
+</ul>";

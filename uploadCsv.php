@@ -115,12 +115,7 @@ $u_email  = $_SESSION['u_email'];
 				}	
 			?>
 			
-			
-			
-			
-			
-			
-			
+		
 
 				</section>
 				<! --/wrapper -->

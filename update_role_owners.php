@@ -83,7 +83,7 @@ $access_lvl  = $_SESSION['access_lvl'];
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
 
 <link rel='stylesheet' href='update_role_owners.css'>
-<link src='update_role_owners.js'>
+<script src='update_role_owners.js'></script>
 
 
 
@@ -123,30 +123,92 @@ $access_lvl  = $_SESSION['access_lvl'];
 }
 
 
+<?php
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		#role_name		
+		if(empty($rolename)){
+			
+			echo '.focused .form-label#rolename {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+
+		if(!empty($rolename)){
+			
+			echo '.form-label#rolename {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//		
+		#rolefunction		
+		if(empty($rolefunction)){
+			
+			echo '.focused .form-label#rolefunction {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+
+		if(!empty($rolefunction)){
+			
+			echo '.form-label#rolefunction {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+		#roleowners		
+		if(empty($roleowners)){
+			
+			echo '.focused .form-label#roleowners {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+
+		if(!empty($roleowners)){
+			
+			echo '.form-label#roleowners {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//			
+?>
+
+
+
+
+
+/*
 .focused .form-label {
   -webkit-transform: translateY(-125%);
           transform: translateY(-125%);
   font-size: .75em;
 }
+*/
 
 
-.form-label-textarea {
-  position: absolute;
-  left: 0;
-  top: 10px;
-  color: #999;
-  background-color: #fff;
-  z-index: 10;
-  transition: font-size 150ms ease-out, -webkit-transform 150ms ease-out;
-  transition: transform 150ms ease-out, font-size 150ms ease-out;
-  transition: transform 150ms ease-out, font-size 150ms ease-out, -webkit-transform 150ms ease-out;
-}
-
-.focused .form-label-textarea {
-  -webkit-transform: translateY(-125%);
-          transform: translateY(-125%);
-  font-size: .75em;
-}
 
 
 .form-input {
@@ -159,17 +221,6 @@ $access_lvl  = $_SESSION['access_lvl'];
   transition: box-shadow 150ms ease-out;
 }
 
-.form-input-textarea {
-  position: relative;
-  padding: 40px 0px 5px 0;
-  width: 100%;
-  outline: 0;
-  border: 0;
-  box-shadow: 0 1px 0 0 #e5e5e5;
-  transition: box-shadow 150ms ease-out;
-}
-
-
 
 .form-input:focus {
   box-shadow: 0 2px 0 0 blue;
@@ -180,38 +231,7 @@ $access_lvl  = $_SESSION['access_lvl'];
 }
 
 
-.form-button-submit {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
 
-.form-button-back {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-
-.form-button-reset {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
 
 
 <?php
@@ -247,15 +267,7 @@ $access_lvl  = $_SESSION['access_lvl'];
 		if($access_lvl > 1){
 			$tag = "Admin";
 		} 
-		
-
-
-	
-		
-		
-		
-		
-		
+			
 	?>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -270,19 +282,27 @@ $access_lvl  = $_SESSION['access_lvl'];
 
 <div class="form-wrapper">
   <form action="update_role_owners_exec.php?hostname=<?php echo $hostname; ?>&domain_suffix=<?php echo $domain_suffix; ?>" class="form" method="post">
-  <label><h4>Update Server Roles</h4></label>
+  <label><h4><b>Update Roles</b> (<?php echo strtoupper($fqdn); ?>)</h4></label>
     <div class="form-group">
-      <label class="form-label" for="first">Role Name</label>
+      <label class="form-label" id="rolename" for="first">Role Name</label>
       <input id="first" class="form-input" type="text" name="rolename" value="<?php echo $rolename; ?>"/>
     </div>
     <div class="form-group">
-      <label class="form-label" for="last">Role Function</label>
+      <label class="form-label" for="last" id="rolefunction">Role Function</label>
       <input id="last" class="form-input" type="text" name="rolefunction" value="<?php echo $rolefunction; ?>"/>
     </div>
+
+    <div class="form-group">
+      <label class="form-label" for="last" id="roleowners">Role Owners</label>
+      <input id="last" class="form-input" type="text" name="roleowners" value="<?php echo $roleowners; ?>"/>
+    </div>	
+	<!--
     <div class="form-group">
       <label class="form-label-textarea" for="color" >Role Owners</label>
 	  <textarea id="textarea" class="form-input-textarea" name="roleowners" style="height:100px" placeholder="<?php echo $roleowners; ?>" ></textarea>
-    </div>
+    </div>-->
+	
+	
     <div class="form-group">
       <!--<label class="form-label" for="color">What is your favorite color?</label>-->
       <input type="submit" class="btn btn-success" value="Submit">

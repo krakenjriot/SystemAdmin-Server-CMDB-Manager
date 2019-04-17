@@ -167,7 +167,6 @@ if(isset($_GET['fqdn'])) {
             <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			Others</a>
 			<div class="dropdown-menu" aria-labelledby="dropdown02">
-			  <a class="dropdown-item" href="https://atacenter.nwc.com.sa/" target="_blank">ATA</a>
 			  <a class="dropdown-item" href="http://www.saponsolaris.com/hp.html" target="_blank">HP Proliant Server Ref#</a>
 			  <a class="dropdown-item" href="https://translate.google.com.sa/?um=1&ie=UTF-8&hl=en&client=tw-ob#ar/en/" target="_blank">Google Translator</a>
 			  <a class="dropdown-item" href="https://support.hp.com/us-en" target="_blank">HP Customer Support</a>

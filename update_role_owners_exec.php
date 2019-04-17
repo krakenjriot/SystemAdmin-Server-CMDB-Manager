@@ -25,14 +25,14 @@
 		if(isset($_POST['roleowners'])) {
 			$roleowners = $_POST['roleowners'];
 		}
-		include_once 'libs/dbh.inc.php';
-		include_once 'func/func.php';
+
 		
 						
 		/////////////////////////////////////////////////////////////			
 		/////////////////////////////////////////////////////////////			
 		/////////////////////////////////////////////////////////////	
-			
+		include_once 'libs/dbh.inc.php';
+		include_once 'func/func.php';			
 		$fqdn = $hostname.".".$domain_suffix;
 		//$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$fqdn'";	
 		$sql = "UPDATE tbl_machine SET role_name='$rolename',role_function='$rolefunction',role_owners='$roleowners' WHERE fqdn='$fqdn'; ";

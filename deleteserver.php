@@ -79,7 +79,7 @@ if(isset($_GET['id'])) {
 				function newPage(num) {
 				var url=new Array();
 				url[0]='exec.deleteserver.php?<?php echo "fqdn=$fqdn"; ?>';	
-				url[1]="landingpage1.php?<?php echo "fqdn=$fqdn"; ?>";	
+				url[1]="<?php echo 'serverdet.php?id=0&query='.$hostname."&domain_suffix=".$domain_suffix; ?>";	
 				window.location=url[num];``
 				}
 				// 
@@ -126,7 +126,7 @@ if(isset($_GET['id'])) {
 					  
 					  <button class="btn btn-lg btn-primary btn-block" type="submit" name="deletenow" >Delete Now</button>
 					   </br>
-					  <a href="javascript:window.close();"><button class="btn btn-lg btn-primary btn-block" type="button" name="register" >Close</button></a>
+					  <button type="button" class="btn btn-danger" value="Cancel" name="cancel" onclick="newPage(1)">Cancel</button>
 					  
 					  
 					  

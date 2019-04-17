@@ -460,6 +460,10 @@ if($_SESSION['access_lvl']==0) {
 			echo " $netstat";
 
 			
+			
+			
+			
+			
 			//echo "</br>Database Record: $resultCheck";
 		/////////////////////////////////////////////////////////////
 		if($pingresult==0 && $access_lvl==1){	
@@ -497,10 +501,15 @@ if($_SESSION['access_lvl']==0) {
 			
 			echo "</br><b>Role Name: </b>". $row['role_name'];
 			echo "<b> / Functions: </b>". $row['role_function']; 
-			echo "<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='update_role_owners.php?hostname=$hostname&domain_suffix=$domain_suffix'>EDIT</a>&nbsp;&nbsp;</span></font>";
+			echo "&nbsp;&nbsp;<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='update_role_owners.php?hostname=$hostname&domain_suffix=$domain_suffix'>EDIT</a>&nbsp;&nbsp;</span></font>";
 			echo "</br><b>Role Owners: </b>". $row['role_owners']; 
-			//echo "<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='#'>EDIT</a>&nbsp;&nbsp;</span></font>";
+			echo "</br></br>";
 
+		} else {
+			//echo "</br><b>Role Name: </b>";
+			//echo "<b> / Functions: </b>"; 
+			//echo "<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='#' disabled>EDIT</a>&nbsp;&nbsp;</span></font>";
+			//echo "</br><b>Role Owners: </b>"; 			
 		}			
 		
 	
@@ -515,8 +524,10 @@ if($_SESSION['access_lvl']==0) {
 				//allowed 				
 				
 				//echo $menu_000;
+				if($resultCheck)echo $menu_showdata;
 				echo $menu_reachable;	
-				if($resultCheck)echo $menu_showdatabaselink;
+				if($resultCheck)echo $menu_deleterecord;			
+
 			}	
 			if($server==1){
 			//					
@@ -546,7 +557,10 @@ if($_SESSION['access_lvl']==0) {
 				
 				
 			}	
-				if($resultCheck)echo $menu_showdatabaselink;
+				//if($resultCheck)echo $menu_showdatabaselink;
+				if($resultCheck)echo $menu_showdata;
+				//echo $menu_reachable;	
+				if($resultCheck)echo $menu_deleterecord;
 		}	
 		////////////////////////////////////////////////////////////			
 		/////////////////////////////////////////////////////////////
@@ -564,105 +578,14 @@ if($_SESSION['access_lvl']==0) {
 				
 			}				
 			
-						echo $menu_reachable;
-						if($resultCheck)echo $menu_showdatabaselink;
+						
+				if($resultCheck)echo $menu_showdata;
+				echo $menu_reachable;	
+				if($resultCheck)echo $menu_deleterecord;
 		}
 
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		////////////////////////////////////////////////////////////
-		////////////////////////////////////////////////////////////
-			
-			/*
-			$ipv4 = gethostbyname($fqdn);
-
-			if($id=='NA' && $error==0){
-				echo "Status: NOT FOUND IN DATABASE";
-				echo "</br>";
-				echo "FQDN: $fqdn ($status_mgs)";
-				echo "</br>";
-				echo "Hostname: $thostname";
-				echo "</br>";
-				echo "Domain: $domainname ($domainnamestatus)";
-				echo "</br>";
-				echo "IPv4: $ipv4";
-				echo "</br></br>";
-				echo "<a href='manualentry.php?fqdn=$fqdn'>Manual Entry</a>";
-			}
-			elseif($id=='NA' && $error==1){
-				echo "Status: ERROR DOMAIN IS INVALID - Please specify the correct NWC Domain";
-			}
-			else{
-				echo "Status: FOUND IN DATABASE";
-				echo "</br>";
-				echo "FQDN: $fqdn ($status_mgs)";
-				echo "</br>";
-				echo "Hostname: $thostname";
-				echo "</br>";
-				echo "Domain: $domainname ($domainnamestatus)";
-				echo "</br>";
-				echo "IPv4: $ipv4";
-				echo "</br></br>";
-				echo "<a href='showdata1.php?fqdn=$fqdn' target='_blank'>Show Data from Database</a>";
-			}//if
-
-			if($pingresult==1){
-				echo "</br>";
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=getdetailinventory&fqdn=".$fqdn."' target='_blank'>Show Live Data & Sync</a>";				
-				echo "</br>";				
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=listprogramfilefolder&fqdn=".$fqdn."' target='_blank'>Show Program Files Dir.</a>";
-				echo "</br>";
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=getPrograms&fqdn=".$fqdn."' target='_blank'>Get Program Installed</a>";
-				echo "</br>";
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=perfv1&fqdn=".$fqdn."' target='_blank'>Show Live Performance</a>";
-				echo "</br>";
-
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=getLocalAdmin&fqdn=".$fqdn."' target='_blank'>Get Local Admins</a>";
-				echo "</br>";				
-				/////////////////////////////////////////////
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=getlastbootuptime&fqdn=".$fqdn."' target='_blank'>getlastbootuptime</a>";
-				echo "</br>";
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=getserialnumber&fqdn=".$fqdn."' target='_blank'>getserialnumber</a>";
-				echo "</br>";
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=lastuserlogintime&fqdn=".$fqdn."' target='_blank'>lastuserlogintime</a>";
-				echo "</br>";
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=alluserlogintime&fqdn=".$fqdn."' target='_blank'>alluserlogintime</a>";
-				echo "</br>";
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=currentloggedusers&fqdn=".$fqdn."' target='_blank'>currentloggedusers</a>";
-				echo "</br>";
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=getscreenmonitor&fqdn=".$fqdn."' target='_blank'>getscreenmonitor</a>";
-				echo "</br>";
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=listprogramfilefolder&fqdn=".$fqdn."' target='_blank'>listprogramfilefolder</a>";
-				echo "</br>";
-				echo "<a href='$urlip/kraken/livedata.php?urlpage=getdiskdetails&fqdn=".$fqdn."' target='_blank'>getdiskdetails</a>";
-				echo "</br>";
-				/////////////////////////////////////////////
-				echo "<a href='#'>Show Disk Details</a>";
-				echo "</br>";
-				echo "<a href='#'>Show Owners</a>";
-				echo "</br>";
-				echo "<a href='$rdp_path/remotepc.$fqdn.bat'>Manage Remotely (RDP)</a>";
-			}
-			*/
 			//?>
 
 

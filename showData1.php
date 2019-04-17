@@ -58,12 +58,6 @@ $u_email  = $_SESSION['u_email'];
       </button>
 
 	  
-	  
-	  
-	  
-	  
-	  
-	  
 	       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           
 		  <ul class="navbar-nav mr-auto">
@@ -76,23 +70,7 @@ $u_email  = $_SESSION['u_email'];
 
       </div>
 	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
+
 
     </nav>
 
@@ -155,7 +133,7 @@ $u_email  = $_SESSION['u_email'];
 				//echo "<a href='serverdet.php?id=2&query={$fqdn}&'><button class='btn btn-primary'><span class='glyphicon glyphicon-home'>&nbspHome</span></button></a>";
 				
 	
-				echo "<h4>&nbsp&nbsp{$fqdn} (<a href='javascript:window.close();'>Close</a>)</h4>";
+				echo "<h4>&nbsp&nbsp; ".strtoupper($fqdn)." (<a href='javascript:window.close();'>Close</a>)</h4>";
 				
 				
 
@@ -173,13 +151,16 @@ $u_email  = $_SESSION['u_email'];
 				{
 				  
 					foreach($results as $key => $value) {
-						$i++;
+						
+						if(!empty($value)){
+							$i++;
 						echo "<tr>";
 							echo "<td>&nbsp&nbsp&nbsp&nbsp".$i."&nbsp;</td>";
 							echo "<td>&nbsp&nbsp&nbsp&nbsp".strtoupper($key)."&nbsp;</td>";
 							echo "<td>&nbsp&nbsp&nbsp&nbsp".strtoupper($value)."</td>";
 							//echo "<td class='tg-ugh9'>&nbsp&nbsp&nbsp&nbsp<a href='#'>(Up)</a></td>";
 						echo "</tr>";
+						}//
 					}
 
 				}
@@ -188,6 +169,8 @@ $u_email  = $_SESSION['u_email'];
 
 				echo "</tbody>";
 				echo "</table>";
+				echo "</br>";
+				echo "</br>";
 			//**********************************************************************************************************************************
 			//END - CONNECT DB AND PREPARE QUERY
 			//**********************************************************************************************************************************	

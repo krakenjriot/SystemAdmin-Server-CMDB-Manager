@@ -1,6 +1,5 @@
 <?php
 /*******************************************/
-//([WMI] "").ConvertToDateTime((Get-WmiObject Win32_OperatingSystem -ComputerName AUATGISARC001).InstallDate)
 //initialize session
 set_time_limit (600);
 session_start();
@@ -21,6 +20,40 @@ if($_SESSION['access_lvl']==0) {
 
 $access_lvl  = $_SESSION['access_lvl'];
 ?>
+
+<?php 
+
+		//*************************************************
+		if(isset($_GET['domain_suffix'])) {
+			$domain_suffix = $_GET['domain_suffix'];
+		}
+		
+		if(isset($_GET['hostname'])) {
+			$hostname = $_GET['hostname'];
+		}	
+		
+		////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////
+		include_once 'libs/dbh.inc.php';
+		include_once 'func/func.php';
+		
+		$fqdn = $hostname.".".$domain_suffix;
+		$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$fqdn'";
+		//$sql = "SELECT * FROM tbl_machine WHERE fqdn ='aproscomms701.nwc.com.sa'";
+		$result = mysqli_query($conn, $sql);
+		$resultCheck = mysqli_num_rows($result);		
+		if($row = mysqli_fetch_assoc($result)){
+			
+			$rolename = $row['role_name'];
+			$rolefunction = $row['role_function'];
+			$roleowners = $row['role_owners'];			
+		}					
+		/////////////////////////////////////////////////////////////			
+		/////////////////////////////////////////////////////////////			
+		/////////////////////////////////////////////////////////////	
+?>
+
 
 <!DOCTYPE html><html lang='en' class=''>
 <head>
@@ -180,8 +213,31 @@ $access_lvl  = $_SESSION['access_lvl'];
   font-size: 16px;
 }
 
+
+<?php
+
+
+?>
+
 </style>
-</head><body>
+
+	<script type="text/javascript">
+	<!--
+	function newPage(num) {
+	var url=new Array();
+	url[0]="<?php echo 'serverdet.php?id=0&query='.$hostname."&domain_suffix=".$domain_suffix; ?>";
+	url[1]="forgotpass.php";
+	url[2]="resetpass.php";
+	window.location=url[num];``
+	}
+	//
+
+
+	</script>
+</head>
+
+
+<body>
 	<?php
 	
 		if($access_lvl == 1){
@@ -191,6 +247,14 @@ $access_lvl  = $_SESSION['access_lvl'];
 		if($access_lvl > 1){
 			$tag = "Admin";
 		} 
+		
+
+
+	
+		
+		
+		
+		
 		
 	?>
 
@@ -205,26 +269,24 @@ $access_lvl  = $_SESSION['access_lvl'];
 
 
 <div class="form-wrapper">
-  <form action="update_role_owners_exec.php" class="form">
+  <form action="update_role_owners_exec.php?hostname=<?php echo $hostname; ?>&domain_suffix=<?php echo $domain_suffix; ?>" class="form" method="post">
   <label><h4>Update Server Roles</h4></label>
     <div class="form-group">
       <label class="form-label" for="first">Role Name</label>
-      <input id="first" class="form-input" type="text" name="rolename"/>
+      <input id="first" class="form-input" type="text" name="rolename" value="<?php echo $rolename; ?>"/>
     </div>
     <div class="form-group">
       <label class="form-label" for="last">Role Function</label>
-      <input id="last" class="form-input" type="text" name="rolefunction" />
+      <input id="last" class="form-input" type="text" name="rolefunction" value="<?php echo $rolefunction; ?>"/>
     </div>
     <div class="form-group">
       <label class="form-label-textarea" for="color" >Role Owners</label>
-	  <textarea id="textarea" class="form-input-textarea" name="roleowner" placeholder="" style="height:100px"></textarea>
+	  <textarea id="textarea" class="form-input-textarea" name="roleowners" style="height:100px" placeholder="<?php echo $roleowners; ?>" ></textarea>
     </div>
     <div class="form-group">
       <!--<label class="form-label" for="color">What is your favorite color?</label>-->
       <input type="submit" class="btn btn-success" value="Submit">
-	  <button type="button" class="btn btn-danger">Cancel</button>
-	  
-
+	  <button type="button" class="btn btn-danger" value="Cancel" name="cancel" onclick="newPage(0)">Cancel</button>
     </div>	
   </form>
 </div>

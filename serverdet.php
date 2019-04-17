@@ -497,9 +497,9 @@ if($_SESSION['access_lvl']==0) {
 			
 			echo "</br><b>Role Name: </b>". $row['role_name'];
 			echo "<b> / Functions: </b>". $row['role_function']; 
-			echo "<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='#'>EDIT</a>&nbsp;&nbsp;</span></font>";
+			echo "<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='update_role_owners.php?hostname=$hostname&domain_suffix=$domain_suffix'>EDIT</a>&nbsp;&nbsp;</span></font>";
 			echo "</br><b>Role Owners: </b>". $row['role_owners']; 
-			echo "<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='#'>EDIT</a>&nbsp;&nbsp;</span></font>";
+			//echo "<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='#'>EDIT</a>&nbsp;&nbsp;</span></font>";
 
 		}			
 		

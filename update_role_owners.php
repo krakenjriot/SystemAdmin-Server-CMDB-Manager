@@ -26,7 +26,8 @@ $access_lvl  = $_SESSION['access_lvl'];
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
@@ -37,7 +38,12 @@ $access_lvl  = $_SESSION['access_lvl'];
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="bootstrap/css/starter-template.css" rel="stylesheet">
-
+  
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+	
+	
 
 <!--<script src='https://static.codepen.io/assets/editor/live/console_runner-1df7d3399bdc1f40995a35209755dcfd8c7547da127f6469fd81e5fba982f6af.js'></script><script src='https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/anon/pen/yrvXLB" />-->
 <!--<script src='https://static.codepen.io/assets/editor/live/console_runner-1df7d3399bdc1f40995a35209755dcfd8c7547da127f6469fd81e5fba982f6af.js'></script><script src='https://static.codepen.io/assets/editor/live/css_reload-5619dc0905a68b2e6298901de54f73cefe4e079f65a75406858d92924b4938bf.js'></script><meta charset='UTF-8'><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" /><link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" /><link rel="canonical" href="https://codepen.io/anon/pen/yrvXLB" />-->
@@ -83,11 +89,32 @@ $access_lvl  = $_SESSION['access_lvl'];
   transition: transform 150ms ease-out, font-size 150ms ease-out, -webkit-transform 150ms ease-out;
 }
 
+
 .focused .form-label {
   -webkit-transform: translateY(-125%);
           transform: translateY(-125%);
   font-size: .75em;
 }
+
+
+.form-label-textarea {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  color: #999;
+  background-color: #fff;
+  z-index: 10;
+  transition: font-size 150ms ease-out, -webkit-transform 150ms ease-out;
+  transition: transform 150ms ease-out, font-size 150ms ease-out;
+  transition: transform 150ms ease-out, font-size 150ms ease-out, -webkit-transform 150ms ease-out;
+}
+
+.focused .form-label-textarea {
+  -webkit-transform: translateY(-125%);
+          transform: translateY(-125%);
+  font-size: .75em;
+}
+
 
 .form-input {
   position: relative;
@@ -98,6 +125,19 @@ $access_lvl  = $_SESSION['access_lvl'];
   box-shadow: 0 1px 0 0 #e5e5e5;
   transition: box-shadow 150ms ease-out;
 }
+
+.form-input-textarea {
+  position: relative;
+  padding: 40px 0px 5px 0;
+  width: 100%;
+  outline: 0;
+  border: 0;
+  box-shadow: 0 1px 0 0 #e5e5e5;
+  transition: box-shadow 150ms ease-out;
+}
+
+
+
 .form-input:focus {
   box-shadow: 0 2px 0 0 blue;
 }
@@ -105,6 +145,41 @@ $access_lvl  = $_SESSION['access_lvl'];
 .form-input.filled {
   box-shadow: 0 2px 0 0 lightgreen;
 }
+
+
+.form-button-submit {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.form-button-back {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.form-button-reset {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 </style>
 </head><body>
 	<?php
@@ -130,7 +205,8 @@ $access_lvl  = $_SESSION['access_lvl'];
 
 
 <div class="form-wrapper">
-  <form action="" class="form">
+  <form action="update_role_owners_exec.php" class="form">
+  <label><h4>Update Server Roles</h4></label>
     <div class="form-group">
       <label class="form-label" for="first">Role Name</label>
       <input id="first" class="form-input" type="text" name="rolename"/>
@@ -140,14 +216,15 @@ $access_lvl  = $_SESSION['access_lvl'];
       <input id="last" class="form-input" type="text" name="rolefunction" />
     </div>
     <div class="form-group">
-      <label class="form-label" for="color">Role Owners</label>
-      <input id="color" class="form-input" type="textarea" name="rolename" />
+      <label class="form-label-textarea" for="color" >Role Owners</label>
+	  <textarea id="textarea" class="form-input-textarea" name="roleowner" placeholder="" style="height:100px"></textarea>
     </div>
     <div class="form-group">
       <!--<label class="form-label" for="color">What is your favorite color?</label>-->
-      <input id="color" class="form-button" type="submit" name="submit" value="Submit"/>
-	  <input id="color" class="form-button" type="button" name="back" value="back"/>
-	  <input id="color" class="form-button" type="reset" name="reset" value="reset"/>
+      <input type="submit" class="btn btn-success" value="Submit">
+	  <button type="button" class="btn btn-danger">Cancel</button>
+	  
+
     </div>	
   </form>
 </div>

@@ -150,8 +150,8 @@ if(isset($_GET['filename'])){
 			//check if fqdn is existing in the database
 			//if existing then update records
 			//if not existing then add record
-
-
+		
+				
 			$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$fqdn'";
 			$result = mysqli_query($conn, $sql);
 			$resultCheck = mysqli_num_rows($result);
@@ -160,12 +160,108 @@ if(isset($_GET['filename'])){
 			//1 means existing
 			//0 means non-existing
 			if($resultCheck < 1) {
+				
 				//insert data				
-				$sql = "INSERT INTO tbl_machine (fqdn,thostname,domainname,hostfqdn,rdpipv4,rdpipv4mac,defaultgateway,dns1,dns2,subnetmask,machinetype,serialnumber,
-				model,osname,totalphysicalmemorymb,cpuname,cpumanufacturer,cpuclockspeed,cpunumberofcore,cpunumberoflogicalprocessor,
-				installeddate,drivea,driveb,drivec,drived,drivee,drivef,driveg,driveh,drivei,drivej,drivek,drivel,drivem,driven,driveo,drivep,driveq,driver,
-				drives,drivet,driveu,drivev,drivew,drivex,drivey,drivez
-				) VALUE ('$fqdn','$thostname','$domainname','$hostfqdn','$rdpipv4','$rdpipv4mac','$defaultgateway','$dns1','$dns2','$subnetmask','$machinetype','$serialnumber','$model','$osname','$totalphysicalmemorymb','$cpuname','$cpumanufacturer','$cpuclockspeed','$cpunumberofcore','$cpunumberoflogicalprocessor','$installeddate','$drivea','$driveb','$drivec','$drived','$drivee','$drivef','$driveg','$driveh','$drivei','$drivej','$drivek','$drivel','$drivem','$driven','$driveo','$drivep','$driveq','$driver','$drives','$drivet','$driveu','$drivev','$drivew','$drivex','$drivey','$drivez');";
+				$sql = "INSERT INTO tbl_machine ( ";
+				if(!empty($fqdn) $sql += "fqdn"; 				
+				if(!empty($thostname) $sql += ",thostname"; 				
+				if(!empty($domainname) $sql += ",domainname"; 				
+				if(!empty($hostfqdn) $sql += ",hostfqdn"; 				
+				if(!empty($rdpipv4) $sql += ",rdpipv4"; 				
+				if(!empty($rdpipv4mac) $sql += ",rdpipv4mac"; 				
+				if(!empty($defaultgateway) $sql += ",defaultgateway"; 				
+				if(!empty($dns1) $sql += ",dns1"; 				
+				if(!empty($dns2) $sql += ",dns2"; 				
+				if(!empty($subnetmask) $sql += ",subnetmask"; 				
+				if(!empty($machinetype) $sql += ",machinetype"; 				
+				if(!empty($serialnumber) $sql += ",serialnumber"; 				
+				if(!empty($thostname) $sql += ",model"; 				
+				if(!empty($thostname) $sql += ",osname"; 				
+				if(!empty($thostname) $sql += ",totalphysicalmemorymb"; 				
+				if(!empty($thostname) $sql += ",cpuname"; 				
+				if(!empty($thostname) $sql += ",cpumanufacturer"; 				
+				if(!empty($thostname) $sql += ",cpuclockspeed"; 				
+				if(!empty($thostname) $sql += ",cpunumberofcore"; 				
+				if(!empty($thostname) $sql += ",cpunumberoflogicalprocessor"; 				
+				if(!empty($thostname) $sql += ",installeddate"; 				
+				if(!empty($thostname) $sql += ",drivea"; 				
+				if(!empty($thostname) $sql += ",driveb"; 				
+				if(!empty($thostname) $sql += ",drivec"; 				
+				if(!empty($thostname) $sql += ",drived"; 				
+				if(!empty($thostname) $sql += ",drivee"; 				
+				if(!empty($thostname) $sql += ",drivef"; 				
+				if(!empty($thostname) $sql += ",driveg"; 				
+				if(!empty($thostname) $sql += ",driveh"; 				
+				if(!empty($thostname) $sql += ",drivei"; 				
+				if(!empty($thostname) $sql += ",drivej"; 				
+				if(!empty($thostname) $sql += ",drivek"; 				
+				if(!empty($thostname) $sql += ",drivel"; 				
+				if(!empty($thostname) $sql += ",drivem"; 				
+				if(!empty($thostname) $sql += ",driven"; 				
+				if(!empty($thostname) $sql += ",driveo"; 				
+				if(!empty($thostname) $sql += ",drivep"; 				
+				if(!empty($thostname) $sql += ",driveq"; 				
+				if(!empty($thostname) $sql += ",driver"; 				
+				if(!empty($thostname) $sql += ",drives"; 				
+				if(!empty($thostname) $sql += ",drivet"; 				
+				if(!empty($thostname) $sql += ",driveu"; 				
+				if(!empty($thostname) $sql += ",drivev"; 				
+				if(!empty($thostname) $sql += ",drivew"; 				
+				if(!empty($thostname) $sql += ",drivex"; 				
+				if(!empty($thostname) $sql += ",drivey"; 				
+				if(!empty($thostname) $sql += ",drivez"; 
+				
+				$sql += " ) VALUE ( ";			
+						
+				if(!empty($thostname) $sql += "'".$fqdn."'"; 			
+				if(!empty($thostname) $sql += ",'".$thostname."'"; 			
+				if(!empty($thostname) $sql += ",'".$domainname."'"; 			
+				if(!empty($thostname) $sql += ",'".$hostfqdn."'"; 			
+				if(!empty($thostname) $sql += ",'".$rdpipv4."'"; 			
+				if(!empty($thostname) $sql += ",'".$rdpipv4mac."'"; 			
+				if(!empty($thostname) $sql += ",'".$defaultgateway."'"; 			
+				if(!empty($thostname) $sql += ",'".$dns1."'"; 			
+				if(!empty($thostname) $sql += ",'".$dns2."'"; 			
+				if(!empty($thostname) $sql += ",'".$subnetmask."'"; 			
+				if(!empty($thostname) $sql += ",'".$machinetype."'"; 			
+				if(!empty($thostname) $sql += ",'".$serialnumber."'"; 			
+				if(!empty($thostname) $sql += ",'".$model."'"; 			
+				if(!empty($thostname) $sql += ",'".$osname."'"; 			
+				if(!empty($thostname) $sql += ",'".$totalphysicalmemorymb."'"; 			
+				if(!empty($thostname) $sql += ",'".$cpuname."'"; 			
+				if(!empty($thostname) $sql += ",'".$cpumanufacturer."'"; 			
+				if(!empty($thostname) $sql += ",'".$cpuclockspeed."'"; 			
+				if(!empty($thostname) $sql += ",'".$cpunumberofcore."'"; 			
+				if(!empty($thostname) $sql += ",'".$cpunumberoflogicalprocessor."'"; 			
+				if(!empty($thostname) $sql += ",'".$installeddate."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivea."'"; 			
+				if(!empty($thostname) $sql += ",'".$driveb."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivec."'"; 			
+				if(!empty($thostname) $sql += ",'".$drived."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivee."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivef."'"; 			
+				if(!empty($thostname) $sql += ",'".$driveg."'"; 			
+				if(!empty($thostname) $sql += ",'".$driveh."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivei."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivej."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivek."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivel."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivem."'"; 			
+				if(!empty($thostname) $sql += ",'".$driven."'"; 			
+				if(!empty($thostname) $sql += ",'".$driveo."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivep."'"; 			
+				if(!empty($thostname) $sql += ",'".$driveq."'"; 			
+				if(!empty($thostname) $sql += ",'".$driver."'"; 			
+				if(!empty($thostname) $sql += ",'".$drives."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivet."'"; 			
+				if(!empty($thostname) $sql += ",'".$driveu."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivev."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivew."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivex."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivey."'"; 			
+				if(!empty($thostname) $sql += ",'".$drivez."'"; 	
+				$sql += " )";	//close the sql statement
+				
 				$result = mysqli_query($conn, $sql);
 				//echo $result;
 				$msg = "record has been successfully created!";

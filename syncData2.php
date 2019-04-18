@@ -98,55 +98,61 @@ if(isset($_GET['filename'])){
 			//////////////////////////////////////////////////////////////////////////////////////
 			//////////////////////////////////////////////////////////////////////////////////////
 			//////////////////////////////////////////////////////////////////////////////////////
-			$thostname = strtolower($new_csv[$ii]['thostname']);
-			$hostfqdn = strtolower($new_csv[$ii]['hostfqdn']);
-			$domainname = strtolower($new_csv[$ii]['domainname']);
-			$fqdn = strtolower($thostname.".".$domainname);
-			$rdpipv4 = strtolower($new_csv[$ii]['rdpipv4']);
-			$rdpipv4mac = strtolower($new_csv[$ii]['rdpipv4mac']);
-			$defaultgateway = strtolower($new_csv[$ii]['defaultgateway']);
-			$dns1 = strtolower($new_csv[$ii]['dns1']);
-			$dns2 = strtolower($new_csv[$ii]['dns2']);
-			$subnetmask = strtolower($new_csv[$ii]['subnetmask']);
-			$machinetype = strtolower($new_csv[$ii]['machinetype']);
-			$serialnumber = strtolower($new_csv[$ii]['serialnumber']);
-			$model = strtolower($new_csv[$ii]['model']);
-			$osname = strtolower($new_csv[$ii]['osname']);
-			$totalphysicalmemorymb = strtolower($new_csv[$ii]['totalphysicalmemorymb']);
-			$cpuname = strtolower($new_csv[$ii]['cpuname']);
-			$cpumanufacturer = strtolower($new_csv[$ii]['cpumanufacturer']);
-			$cpuclockspeed = strtolower($new_csv[$ii]['cpuclockspeed']);
-			$cpunumberofcore = strtolower($new_csv[$ii]['cpunumberofcore']);
-			$cpunumberoflogicalprocessor = strtolower($new_csv[$ii]['cpunumberoflogicalprocessor']);
-			$installeddate = strtolower($new_csv[$ii]['installeddate']);
+	
+			if(!empty($new_csv[$ii]['thostname'])) $thostname = strtolower($new_csv[$ii]['thostname']);
+			if(!empty($new_csv[$ii]['hostfqdn'])) $hostfqdn = strtolower($new_csv[$ii]['hostfqdn']);
+			if(!empty($new_csv[$ii]['domainname'])) $domainname = strtolower($new_csv[$ii]['domainname']);
+			if(!empty($thostname) && !empty($domainname)) $fqdn = strtolower($thostname.".".$domainname);
+			if(!empty($new_csv[$ii]['rdpipv4'])) $rdpipv4 = strtolower($new_csv[$ii]['rdpipv4']);
+			if(!empty($new_csv[$ii]['rdpipv4mac'])) $rdpipv4mac = strtolower($new_csv[$ii]['rdpipv4mac']);
+			if(!empty($new_csv[$ii]['defaultgateway'])) $defaultgateway = strtolower($new_csv[$ii]['defaultgateway']);
+			if(!empty($new_csv[$ii]['dns1'])) $dns1 = strtolower($new_csv[$ii]['dns1']);
+			if(!empty($new_csv[$ii]['dns2'])) $dns2 = strtolower($new_csv[$ii]['dns2']);
+			if(!empty($new_csv[$ii]['subnetmask'])) $subnetmask = strtolower($new_csv[$ii]['subnetmask']);
+			if(!empty($new_csv[$ii]['machinetype'])) $machinetype = strtolower($new_csv[$ii]['machinetype']);
+			if(!empty($new_csv[$ii]['serialnumber'])) $serialnumber = strtolower($new_csv[$ii]['serialnumber']);
+			if(!empty($new_csv[$ii]['model'])) $model = strtolower($new_csv[$ii]['model']);
+			if(!empty($new_csv[$ii]['osname'])) $osname = strtolower($new_csv[$ii]['osname']);
+			if(!empty($new_csv[$ii]['totalphysicalmemorymb'])) $totalphysicalmemorymb = strtolower($new_csv[$ii]['totalphysicalmemorymb']);
+			if(!empty($new_csv[$ii]['cpuname'])) $cpuname = strtolower($new_csv[$ii]['cpuname']);
+			if(!empty($new_csv[$ii]['cpumanufacturer'])) $cpumanufacturer = strtolower($new_csv[$ii]['cpumanufacturer']);
+			if(!empty($new_csv[$ii]['cpuclockspeed'])) $cpuclockspeed = strtolower($new_csv[$ii]['cpuclockspeed']);
+			if(!empty($new_csv[$ii]['cpunumberofcore'])) $cpunumberofcore = strtolower($new_csv[$ii]['cpunumberofcore']);
+			if(!empty($new_csv[$ii]['cpunumberoflogicalprocessor'])) $cpunumberoflogicalprocessor = strtolower($new_csv[$ii]['cpunumberoflogicalprocessor']);
+			if(!empty($new_csv[$ii]['installeddate'])) $installeddate = strtolower($new_csv[$ii]['installeddate']);
 			
-			$drivea = strtolower($new_csv[$ii]['drivea']);
-			$driveb = strtolower($new_csv[$ii]['driveb']);
-			$drivec = strtolower($new_csv[$ii]['drivec']);
-			$drived = strtolower($new_csv[$ii]['drived']);
-			$drivee = strtolower($new_csv[$ii]['drivee']);
-			$drivef = strtolower($new_csv[$ii]['drivef']);
-			$driveg = strtolower($new_csv[$ii]['driveg']);
-			$driveh = strtolower($new_csv[$ii]['driveh']);
-			$drivei = strtolower($new_csv[$ii]['drivei']);
-			$drivej = strtolower($new_csv[$ii]['drivej']);
-			$drivek = strtolower($new_csv[$ii]['drivek']);
-			$drivel = strtolower($new_csv[$ii]['drivel']);
-			$drivem = strtolower($new_csv[$ii]['drivem']);
-			$driven = strtolower($new_csv[$ii]['driven']);
-			$driveo = strtolower($new_csv[$ii]['driveo']);
-			$drivep = strtolower($new_csv[$ii]['drivep']);
-			$driveq = strtolower($new_csv[$ii]['driveq']);
-			$driver = strtolower($new_csv[$ii]['driver']);
-			$drives = strtolower($new_csv[$ii]['drives']);
-			$drivet = strtolower($new_csv[$ii]['drivet']);
-			$driveu = strtolower($new_csv[$ii]['driveu']);
-			$drivev = strtolower($new_csv[$ii]['drivev']);
-			$drivew = strtolower($new_csv[$ii]['drivew']);
-			$drivex = strtolower($new_csv[$ii]['drivex']);
-			$drivey = strtolower($new_csv[$ii]['drivey']);
-			$drivez = strtolower($new_csv[$ii]['drivez']);			
+			if(!empty($new_csv[$ii]['role_name'])) $role_name = strtolower($new_csv[$ii]['role_name']);
+			if(!empty($new_csv[$ii]['role_function'])) $role_function = strtolower($new_csv[$ii]['role_function']);
+			if(!empty($new_csv[$ii]['role_descriptions'])) $role_descriptions = strtolower($new_csv[$ii]['role_descriptions']);
+			if(!empty($new_csv[$ii]['role_owners'])) $role_owners = strtolower($new_csv[$ii]['role_owners']);
 			
+			if(!empty($new_csv[$ii]['drivea'])) $driveo = strtolower($new_csv[$ii]['drivea']);
+			if(!empty($new_csv[$ii]['driveb'])) $driveo = strtolower($new_csv[$ii]['driveb']);
+			if(!empty($new_csv[$ii]['drivec'])) $driveo = strtolower($new_csv[$ii]['drivec']);
+			if(!empty($new_csv[$ii]['drived'])) $driveo = strtolower($new_csv[$ii]['drived']);
+			if(!empty($new_csv[$ii]['drivee'])) $driveo = strtolower($new_csv[$ii]['drivee']);
+			if(!empty($new_csv[$ii]['drivef'])) $driveo = strtolower($new_csv[$ii]['drivef']);
+			if(!empty($new_csv[$ii]['driveg'])) $driveo = strtolower($new_csv[$ii]['driveg']);
+			if(!empty($new_csv[$ii]['driveh'])) $driveo = strtolower($new_csv[$ii]['driveh']);
+			if(!empty($new_csv[$ii]['drivei'])) $driveo = strtolower($new_csv[$ii]['drivei']);
+			if(!empty($new_csv[$ii]['drivej'])) $driveo = strtolower($new_csv[$ii]['drivej']);
+			if(!empty($new_csv[$ii]['drivek'])) $driveo = strtolower($new_csv[$ii]['drivek']);
+			if(!empty($new_csv[$ii]['drivel'])) $driveo = strtolower($new_csv[$ii]['drivel']);
+			if(!empty($new_csv[$ii]['drivem'])) $driveo = strtolower($new_csv[$ii]['drivem']);
+			if(!empty($new_csv[$ii]['driven'])) $driveo = strtolower($new_csv[$ii]['driven']);
+			if(!empty($new_csv[$ii]['drivep'])) $driveo = strtolower($new_csv[$ii]['drivep']);
+			if(!empty($new_csv[$ii]['driveq'])) $driveo = strtolower($new_csv[$ii]['driveq']);
+			if(!empty($new_csv[$ii]['driver'])) $driveo = strtolower($new_csv[$ii]['driver']);
+			if(!empty($new_csv[$ii]['drives'])) $driveo = strtolower($new_csv[$ii]['drives']);
+			if(!empty($new_csv[$ii]['drivet'])) $driveo = strtolower($new_csv[$ii]['drivet']);
+			if(!empty($new_csv[$ii]['driveu'])) $driveo = strtolower($new_csv[$ii]['driveu']);
+			if(!empty($new_csv[$ii]['drivev'])) $driveo = strtolower($new_csv[$ii]['drivev']);
+			if(!empty($new_csv[$ii]['drivew'])) $driveo = strtolower($new_csv[$ii]['drivew']);
+			if(!empty($new_csv[$ii]['drivex'])) $driveo = strtolower($new_csv[$ii]['drivex']);
+			if(!empty($new_csv[$ii]['drivey'])) $driveo = strtolower($new_csv[$ii]['drivey']);
+			if(!empty($new_csv[$ii]['drivez'])) $driveo = strtolower($new_csv[$ii]['drivez']);
+
+				
 			//check if fqdn is existing in the database
 			//if existing then update records
 			//if not existing then add record
@@ -160,125 +166,192 @@ if(isset($_GET['filename'])){
 			//1 means existing
 			//0 means non-existing
 			if($resultCheck < 1) {
-				
+				//mandatory that fqdn, thostname, domainname are not empty
 				//insert data				
-				$sql = "INSERT INTO tbl_machine ( ";
-				if(!empty($fqdn) $sql += "fqdn"; 				
-				if(!empty($thostname) $sql += ",thostname"; 				
-				if(!empty($domainname) $sql += ",domainname"; 				
-				if(!empty($hostfqdn) $sql += ",hostfqdn"; 				
-				if(!empty($rdpipv4) $sql += ",rdpipv4"; 				
-				if(!empty($rdpipv4mac) $sql += ",rdpipv4mac"; 				
-				if(!empty($defaultgateway) $sql += ",defaultgateway"; 				
-				if(!empty($dns1) $sql += ",dns1"; 				
-				if(!empty($dns2) $sql += ",dns2"; 				
-				if(!empty($subnetmask) $sql += ",subnetmask"; 				
-				if(!empty($machinetype) $sql += ",machinetype"; 				
-				if(!empty($serialnumber) $sql += ",serialnumber"; 				
-				if(!empty($thostname) $sql += ",model"; 				
-				if(!empty($thostname) $sql += ",osname"; 				
-				if(!empty($thostname) $sql += ",totalphysicalmemorymb"; 				
-				if(!empty($thostname) $sql += ",cpuname"; 				
-				if(!empty($thostname) $sql += ",cpumanufacturer"; 				
-				if(!empty($thostname) $sql += ",cpuclockspeed"; 				
-				if(!empty($thostname) $sql += ",cpunumberofcore"; 				
-				if(!empty($thostname) $sql += ",cpunumberoflogicalprocessor"; 				
-				if(!empty($thostname) $sql += ",installeddate"; 				
-				if(!empty($thostname) $sql += ",drivea"; 				
-				if(!empty($thostname) $sql += ",driveb"; 				
-				if(!empty($thostname) $sql += ",drivec"; 				
-				if(!empty($thostname) $sql += ",drived"; 				
-				if(!empty($thostname) $sql += ",drivee"; 				
-				if(!empty($thostname) $sql += ",drivef"; 				
-				if(!empty($thostname) $sql += ",driveg"; 				
-				if(!empty($thostname) $sql += ",driveh"; 				
-				if(!empty($thostname) $sql += ",drivei"; 				
-				if(!empty($thostname) $sql += ",drivej"; 				
-				if(!empty($thostname) $sql += ",drivek"; 				
-				if(!empty($thostname) $sql += ",drivel"; 				
-				if(!empty($thostname) $sql += ",drivem"; 				
-				if(!empty($thostname) $sql += ",driven"; 				
-				if(!empty($thostname) $sql += ",driveo"; 				
-				if(!empty($thostname) $sql += ",drivep"; 				
-				if(!empty($thostname) $sql += ",driveq"; 				
-				if(!empty($thostname) $sql += ",driver"; 				
-				if(!empty($thostname) $sql += ",drives"; 				
-				if(!empty($thostname) $sql += ",drivet"; 				
-				if(!empty($thostname) $sql += ",driveu"; 				
-				if(!empty($thostname) $sql += ",drivev"; 				
-				if(!empty($thostname) $sql += ",drivew"; 				
-				if(!empty($thostname) $sql += ",drivex"; 				
-				if(!empty($thostname) $sql += ",drivey"; 				
-				if(!empty($thostname) $sql += ",drivez"; 
+				$sql  = "INSERT INTO tbl_machine ( ";
+				$sql .= " fqdn"; //mandatory 				
+				if(!empty($thostname)) $sql .= ",thostname"; 				
+				if(!empty($domainname)) $sql .= ",domainname"; 				
+				if(!empty($hostfqdn)) $sql .= ",hostfqdn"; 				
+				if(!empty($rdpipv4)) $sql .= ",rdpipv4"; 				
+				if(!empty($rdpipv4mac)) $sql .= ",rdpipv4mac"; 				
+				if(!empty($defaultgateway)) $sql .= ",defaultgateway"; 				
+				if(!empty($dns1)) $sql .= ",dns1"; 				
+				if(!empty($dns2)) $sql .= ",dns2"; 				
+				if(!empty($subnetmask)) $sql .= ",subnetmask"; 				
+				if(!empty($machinetype)) $sql .= ",machinetype"; 				
+				if(!empty($serialnumber)) $sql .= ",serialnumber"; 				
+				if(!empty($model)) $sql .= ",model"; 				
+				if(!empty($osname)) $sql .= ",osname"; 				
+				if(!empty($totalphysicalmemorymb)) $sql .= ",totalphysicalmemorymb"; 				
+				if(!empty($cpuname)) $sql .= ",cpuname"; 				
+				if(!empty($cpumanufacturer)) $sql .= ",cpumanufacturer"; 				
+				if(!empty($cpuclockspeed)) $sql .= ",cpuclockspeed"; 				
+				if(!empty($cpunumberofcore)) $sql .= ",cpunumberofcore"; 				
+				if(!empty($cpunumberoflogicalprocessor)) $sql .= ",cpunumberoflogicalprocessor"; 				
+				if(!empty($installeddate)) $sql .= ",installeddate"; 
 				
-				$sql += " ) VALUE ( ";			
-						
-				if(!empty($thostname) $sql += "'".$fqdn."'"; 			
-				if(!empty($thostname) $sql += ",'".$thostname."'"; 			
-				if(!empty($thostname) $sql += ",'".$domainname."'"; 			
-				if(!empty($thostname) $sql += ",'".$hostfqdn."'"; 			
-				if(!empty($thostname) $sql += ",'".$rdpipv4."'"; 			
-				if(!empty($thostname) $sql += ",'".$rdpipv4mac."'"; 			
-				if(!empty($thostname) $sql += ",'".$defaultgateway."'"; 			
-				if(!empty($thostname) $sql += ",'".$dns1."'"; 			
-				if(!empty($thostname) $sql += ",'".$dns2."'"; 			
-				if(!empty($thostname) $sql += ",'".$subnetmask."'"; 			
-				if(!empty($thostname) $sql += ",'".$machinetype."'"; 			
-				if(!empty($thostname) $sql += ",'".$serialnumber."'"; 			
-				if(!empty($thostname) $sql += ",'".$model."'"; 			
-				if(!empty($thostname) $sql += ",'".$osname."'"; 			
-				if(!empty($thostname) $sql += ",'".$totalphysicalmemorymb."'"; 			
-				if(!empty($thostname) $sql += ",'".$cpuname."'"; 			
-				if(!empty($thostname) $sql += ",'".$cpumanufacturer."'"; 			
-				if(!empty($thostname) $sql += ",'".$cpuclockspeed."'"; 			
-				if(!empty($thostname) $sql += ",'".$cpunumberofcore."'"; 			
-				if(!empty($thostname) $sql += ",'".$cpunumberoflogicalprocessor."'"; 			
-				if(!empty($thostname) $sql += ",'".$installeddate."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivea."'"; 			
-				if(!empty($thostname) $sql += ",'".$driveb."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivec."'"; 			
-				if(!empty($thostname) $sql += ",'".$drived."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivee."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivef."'"; 			
-				if(!empty($thostname) $sql += ",'".$driveg."'"; 			
-				if(!empty($thostname) $sql += ",'".$driveh."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivei."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivej."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivek."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivel."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivem."'"; 			
-				if(!empty($thostname) $sql += ",'".$driven."'"; 			
-				if(!empty($thostname) $sql += ",'".$driveo."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivep."'"; 			
-				if(!empty($thostname) $sql += ",'".$driveq."'"; 			
-				if(!empty($thostname) $sql += ",'".$driver."'"; 			
-				if(!empty($thostname) $sql += ",'".$drives."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivet."'"; 			
-				if(!empty($thostname) $sql += ",'".$driveu."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivev."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivew."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivex."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivey."'"; 			
-				if(!empty($thostname) $sql += ",'".$drivez."'"; 	
-				$sql += " )";	//close the sql statement
+				if(!empty($role_name)) $sql .= ",role_name"; 
+				if(!empty($role_function)) $sql .= ",role_function"; 
+				if(!empty($role_descriptions)) $sql .= ",role_descriptions"; 
+				if(!empty($role_owners)) $sql .= ",role_owners"; 
+								
+				if(!empty($drivea)) $sql .= ",drivea"; 				
+				if(!empty($driveb)) $sql .= ",driveb"; 				
+				if(!empty($drivec)) $sql .= ",drivec"; 				
+				if(!empty($drived)) $sql .= ",drived"; 				
+				if(!empty($drivee)) $sql .= ",drivee"; 				
+				if(!empty($drivef)) $sql .= ",drivef"; 				
+				if(!empty($driveg)) $sql .= ",driveg"; 				
+				if(!empty($driveh)) $sql .= ",driveh"; 				
+				if(!empty($drivei)) $sql .= ",drivei"; 				
+				if(!empty($drivej)) $sql .= ",drivej"; 				
+				if(!empty($drivek)) $sql .= ",drivek"; 				
+				if(!empty($drivel)) $sql .= ",drivel"; 				
+				if(!empty($drivem)) $sql .= ",drivem"; 				
+				if(!empty($driven)) $sql .= ",driven"; 				
+				if(!empty($driveo)) $sql .= ",driveo"; 				
+				if(!empty($drivep)) $sql .= ",drivep"; 				
+				if(!empty($driveq)) $sql .= ",driveq"; 				
+				if(!empty($driver)) $sql .= ",driver"; 				
+				if(!empty($drives)) $sql .= ",drives"; 				
+				if(!empty($drivet)) $sql .= ",drivet"; 				
+				if(!empty($driveu)) $sql .= ",driveu"; 				
+				if(!empty($drivev)) $sql .= ",drivev"; 				
+				if(!empty($drivew)) $sql .= ",drivew"; 				
+				if(!empty($drivex)) $sql .= ",drivex"; 				
+				if(!empty($drivey)) $sql .= ",drivey"; 				
+				if(!empty($drivez)) $sql .= ",drivez"; 
 				
+				$sql .= " ) VALUE ( ";				
+				
+				$sql .= "'".$fqdn."'"; //mandatory			
+				if(!empty($thostname)) $sql .= ",'".$thostname."'"; 			
+				if(!empty($domainname)) $sql .= ",'".$domainname."'"; 			
+				if(!empty($hostfqdn)) $sql .= ",'".$hostfqdn."'"; 			
+				if(!empty($rdpipv4)) $sql .= ",'".$rdpipv4."'"; 			
+				if(!empty($rdpipv4mac)) $sql .= ",'".$rdpipv4mac."'"; 			
+				if(!empty($defaultgateway)) $sql .= ",'".$defaultgateway."'"; 			
+				if(!empty($dns1)) $sql .= ",'".$dns1."'"; 			
+				if(!empty($dns2)) $sql .= ",'".$dns2."'"; 			
+				if(!empty($subnetmask)) $sql .= ",'".$subnetmask."'"; 			
+				if(!empty($machinetype)) $sql .= ",'".$machinetype."'"; 			
+				if(!empty($serialnumber)) $sql .= ",'".$serialnumber."'"; 			
+				if(!empty($model)) $sql .= ",'".$model."'"; 			
+				if(!empty($osname)) $sql .= ",'".$osname."'"; 			
+				if(!empty($totalphysicalmemorymb)) $sql .= ",'".$totalphysicalmemorymb."'"; 			
+				if(!empty($cpuname)) $sql .= ",'".$cpuname."'"; 			
+				if(!empty($cpumanufacturer)) $sql .= ",'".$cpumanufacturer."'"; 			
+				if(!empty($cpuclockspeed)) $sql .= ",'".$cpuclockspeed."'"; 			
+				if(!empty($cpunumberofcore)) $sql .= ",'".$cpunumberofcore."'"; 			
+				if(!empty($cpunumberoflogicalprocessor)) $sql .= ",'".$cpunumberoflogicalprocessor."'"; 			
+				if(!empty($installeddate)) $sql .= ",'".$installeddate."'"; 
+				
+				if(!empty($role_name)) $sql .= ",'".$role_name."'"; 
+				if(!empty($role_function)) $sql .= ",'".$role_function."'"; 
+				if(!empty($role_descriptions)) $sql .= ",'".$role_descriptions."'"; 
+				if(!empty($role_owners)) $sql .= ",'".$role_owners."'"; 
+				
+				if(!empty($drivea)) $sql .= ",'".$drivea."'"; 			
+				if(!empty($driveb)) $sql .= ",'".$driveb."'"; 			
+				if(!empty($drivec)) $sql .= ",'".$drivec."'"; 			
+				if(!empty($drived)) $sql .= ",'".$drived."'"; 			
+				if(!empty($drivee)) $sql .= ",'".$drivee."'"; 			
+				if(!empty($drivef)) $sql .= ",'".$drivef."'"; 			
+				if(!empty($driveg)) $sql .= ",'".$driveg."'"; 			
+				if(!empty($driveh)) $sql .= ",'".$driveh."'"; 			
+				if(!empty($drivei)) $sql .= ",'".$drivei."'"; 			
+				if(!empty($drivej)) $sql .= ",'".$drivej."'"; 			
+				if(!empty($drivek)) $sql .= ",'".$drivek."'"; 			
+				if(!empty($drivel)) $sql .= ",'".$drivel."'"; 			
+				if(!empty($drivem)) $sql .= ",'".$drivem."'"; 			
+				if(!empty($driven)) $sql .= ",'".$driven."'"; 			
+				if(!empty($driveo)) $sql .= ",'".$driveo."'"; 			
+				if(!empty($drivep)) $sql .= ",'".$drivep."'"; 			
+				if(!empty($driveq)) $sql .= ",'".$driveq."'"; 			
+				if(!empty($driver)) $sql .= ",'".$driver."'"; 			
+				if(!empty($drives)) $sql .= ",'".$drives."'"; 			
+				if(!empty($drivet)) $sql .= ",'".$drivet."'"; 			
+				if(!empty($driveu)) $sql .= ",'".$driveu."'"; 			
+				if(!empty($drivev)) $sql .= ",'".$drivev."'"; 			
+				if(!empty($drivew)) $sql .= ",'".$drivew."'"; 			
+				if(!empty($drivex)) $sql .= ",'".$drivex."'"; 			
+				if(!empty($drivey)) $sql .= ",'".$drivey."'"; 			
+				if(!empty($drivez)) $sql .= ",'".$drivez."'"; 	
+				$sql .= " )";	//close the sql statement
+				//echo $sql;
 				$result = mysqli_query($conn, $sql);
 				//echo $result;
 				$msg = "record has been successfully created!";
 			}
 			else {
 				//update data
-				$sql = "UPDATE tbl_machine SET thostname='$thostname',domainname='$domainname',hostfqdn='$hostfqdn',
-				rdpipv4='$rdpipv4',rdpipv4mac='$rdpipv4mac',defaultgateway='$defaultgateway',dns1='$dns1',
-				dns2='$dns2',subnetmask='$subnetmask',machinetype='$machinetype',serialnumber='$serialnumber',model='$model',osname='$osname',
-				totalphysicalmemorymb='$totalphysicalmemorymb',cpuname='$cpuname',cpumanufacturer='$cpumanufacturer',
-				cpuclockspeed='$cpuclockspeed',cpunumberofcore='$cpunumberofcore',
-				cpunumberoflogicalprocessor='$cpunumberoflogicalprocessor',installeddate='$installeddate',drivea='$drivea',driveb='$driveb',drivec='$drivec',drived='$drived',drivee='$drivee',drivef='$drivef',driveg='$driveg',driveh='$driveh',drivei='$drivei',drivej='$drivej',drivek='$drivek',drivel='$drivel',drivem='$drivem',driven='$driven',
-				driveo='$driveo',drivep='$drivep',driveq='$driveq',driver='$driver',drives='$drives',drivet='$drivet',driveu='$driveu',drivev='$drivev',drivew='$drivew',drivex='$drivex',drivey='$drivey',drivez='$drivez' WHERE fqdn='$fqdn';";
-
+				
+				$sql  = "UPDATE tbl_machine SET ";
+				//$sql .= "fqdn='$fqdn'"; 
+				if(!empty($thostname)) $sql .= "thostname='".$thostname."'"; 
+				if(!empty($domainname)) $sql .= ",domainname='".$domainname."'"; 
+				if(!empty($hostfqdn)) $sql .= ",hostfqdn='".$hostfqdn."'"; 
+				if(!empty($rdpipv4)) $sql .= ",rdpipv4='".$rdpipv4."'"; 			
+				
+				
+				if(!empty($rdpipv4mac)) $sql .= ",rdpipv4mac='".$rdpipv4mac."'"; 
+				if(!empty($defaultgateway)) $sql .= ",defaultgateway='".$defaultgateway."'"; 
+				if(!empty($dns1)) $sql .= ",dns1='".$dns1."'"; 
+				if(!empty($dns2)) $sql .= ",dns2='".$dns2."'"; 
+				if(!empty($subnetmask)) $sql .= ",subnetmask='".$subnetmask."'"; 
+				if(!empty($machinetype)) $sql .= ",machinetype='".$machinetype."'"; 
+				if(!empty($serialnumber)) $sql .= ",serialnumber='".$serialnumber."'"; 
+				if(!empty($model)) $sql .= ",model='".$model."'"; 
+				if(!empty($osname)) $sql .= ",osname='".$osname."'"; 
+				if(!empty($totalphysicalmemorymb)) $sql .= ",totalphysicalmemorymb='".$totalphysicalmemorymb."'"; 
+				if(!empty($cpuname)) $sql .= ",cpuname='".$cpuname."'"; 
+				if(!empty($cpumanufacturer)) $sql .= ",cpumanufacturer='".$cpumanufacturer."'"; 
+				
+				if(!empty($cpuclockspeed)) $sql .= ",cpuclockspeed='".$cpuclockspeed."'"; 
+				if(!empty($cpunumberofcore)) $sql .= ",cpunumberofcore='".$cpunumberofcore."'"; 
+				if(!empty($cpunumberoflogicalprocessor)) $sql .= ",cpunumberoflogicalprocessor='".$cpunumberoflogicalprocessor."'"; 
+				if(!empty($installeddate)) $sql .= ",installeddate='".$installeddate."'"; 
+				
+				if(!empty($role_name)) $sql .= ",role_name='".$role_name."'"; 
+				if(!empty($role_function)) $sql .= ",role_function='".$role_function."'"; 
+				if(!empty($role_descriptions)) $sql .= ",role_descriptions='".$role_descriptions."'"; 
+				if(!empty($role_owners)) $sql .= ",role_owners='".$role_owners."'"; 
+				
+				if(!empty($drivea)) $sql .= ",drivea='".$drivea."'"; 
+				if(!empty($driveb)) $sql .= ",driveb='".$driveb."'"; 
+				if(!empty($drivec)) $sql .= ",drivec='".$drivec."'"; 
+				if(!empty($drived)) $sql .= ",drived='".$drived."'"; 
+				if(!empty($drivee)) $sql .= ",drivee='".$drivee."'"; 
+				if(!empty($drivef)) $sql .= ",drivef='".$drivef."'"; 
+				if(!empty($driveg)) $sql .= ",driveg='".$driveg."'"; 
+				if(!empty($driveh)) $sql .= ",driveh='".$driveh."'"; 
+				if(!empty($drivei)) $sql .= ",drivei='".$drivei."'"; 
+				if(!empty($drivej)) $sql .= ",drivej='".$drivej."'"; 
+				if(!empty($drivek)) $sql .= ",drivek='".$drivek."'"; 
+				if(!empty($drivel)) $sql .= ",drivel='".$drivel."'"; 
+				if(!empty($drivem)) $sql .= ",drivem='".$drivem."'"; 
+				if(!empty($driven)) $sql .= ",driven='".$driven."'"; 
+				if(!empty($driveo)) $sql .= ",driveo='".$driveo."'"; 
+				if(!empty($drivep)) $sql .= ",drivep='".$drivep."'"; 
+				if(!empty($driveq)) $sql .= ",driveq='".$driveq."'"; 
+				if(!empty($driver)) $sql .= ",driver='".$driver."'"; 
+				if(!empty($drives)) $sql .= ",drives='".$drives."'"; 
+				if(!empty($drivet)) $sql .= ",drivet='".$drivet."'"; 
+				if(!empty($driveu)) $sql .= ",driveu='".$driveu."'"; 
+				if(!empty($drivev)) $sql .= ",drivev='".$drivev."'"; 
+				if(!empty($drivew)) $sql .= ",drivew='".$drivew."'"; 
+				if(!empty($drivex)) $sql .= ",drivex='".$drivex."'"; 
+				if(!empty($drivey)) $sql .= ",drivey='".$drivey."'"; 
+				if(!empty($drivez)) $sql .= ",drivez='".$drivez."'"; 
+				
+				$sql .= " WHERE fqdn='$fqdn'; ";
+						
 				$result = mysqli_query($conn, $sql);
-				//echo $result;
+				echo "</BR>RESULT".$result;
 				$msg = "record has been successfully updated!";
+				
+				echo "</BR>SQL ".$sql;
 			}
 			//////////////////////////////////////////////////////////////////////////////////////
 			//////////////////////////////////////////////////////////////////////////////////////
@@ -289,6 +362,7 @@ if(isset($_GET['filename'])){
 			//////////////////////////////////////////////////////////////////////////////////////
 			//////////////////////////////////////////////////////////////////////////////////////
 		}//for	
+		
 		
 		//delete csv file after upload		
 ?>
@@ -372,7 +446,6 @@ if(isset($_GET['filename'])){
 			
 					<?php 
 						echo $msg;
-						
 					?>
 			
 			

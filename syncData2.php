@@ -151,6 +151,14 @@ if(isset($_GET['filename'])){
 			if(!empty($new_csv[$ii]['drivex'])) $driveo = strtolower($new_csv[$ii]['drivex']);
 			if(!empty($new_csv[$ii]['drivey'])) $driveo = strtolower($new_csv[$ii]['drivey']);
 			if(!empty($new_csv[$ii]['drivez'])) $driveo = strtolower($new_csv[$ii]['drivez']);
+			
+			
+			if(!empty($new_csv[$ii]['BU'])) $BU = strtolower($new_csv[$ii]['BU']);
+			if(!empty($new_csv[$ii]['ENV'])) $ENV = strtolower($new_csv[$ii]['ENV']);
+						
+			if(!empty($new_csv[$ii]['PRIORITY'])) $PRIORITY = strtolower($new_csv[$ii]['PRIORITY']);
+			if(!empty($new_csv[$ii]['SEVERITY'])) $SEVERITY = strtolower($new_csv[$ii]['SEVERITY']);
+
 
 				
 			//check if fqdn is existing in the database
@@ -223,6 +231,14 @@ if(isset($_GET['filename'])){
 				if(!empty($drivey)) $sql .= ",drivey"; 				
 				if(!empty($drivez)) $sql .= ",drivez"; 
 				
+		
+				if(!empty($BU)) $sql .= ",BU"; 
+				if(!empty($ENV)) $sql .= ",ENV"; 	
+
+				
+				if(!empty($PRIORITY)) $sql .= ",PRIORITY"; 				
+				if(!empty($SEVERITY)) $sql .= ",SEVERITY"; 				
+				
 				$sql .= " ) VALUE ( ";				
 				
 				$sql .= "'".$fqdn."'"; //mandatory			
@@ -278,6 +294,16 @@ if(isset($_GET['filename'])){
 				if(!empty($drivex)) $sql .= ",'".$drivex."'"; 			
 				if(!empty($drivey)) $sql .= ",'".$drivey."'"; 			
 				if(!empty($drivez)) $sql .= ",'".$drivez."'"; 	
+				
+				if(!empty($BU)) $sql .= ",'".$BU."'"; 	
+				if(!empty($ENV)) $sql .= ",'".$ENV."'"; 	
+				
+				if(!empty($PRIORITY)) $sql .= ",'".$PRIORITY."'"; 	
+				if(!empty($SEVERITY)) $sql .= ",'".$SEVERITY."'"; 	
+				
+
+				
+				
 				$sql .= " )";	//close the sql statement
 				//echo $sql;
 				$result = mysqli_query($conn, $sql);
@@ -344,6 +370,15 @@ if(isset($_GET['filename'])){
 				if(!empty($drivex)) $sql .= ",drivex='".$drivex."'"; 
 				if(!empty($drivey)) $sql .= ",drivey='".$drivey."'"; 
 				if(!empty($drivez)) $sql .= ",drivez='".$drivez."'"; 
+				
+				
+				if(!empty($BU)) $sql .= ",BU='".$BU."'"; 
+				if(!empty($ENV)) $sql .= ",ENV='".$ENV."'"; 
+				
+					
+				if(!empty($SEVERITY)) $sql .= ",SEVERITY='".$SEVERITY."'"; 
+				if(!empty($PRIORITY)) $sql .= ",PRIORITY='".$PRIORITY."'"; 
+				
 				
 				$sql .= " WHERE fqdn='$fqdn'; ";
 						

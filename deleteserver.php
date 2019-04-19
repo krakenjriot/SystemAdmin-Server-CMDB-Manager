@@ -38,11 +38,12 @@ if(isset($_GET['id'])) {
 }
 */
 
-			$domain_suffix = $_GET['domain_suffix'];
-			$hostname = $_GET['query'];
+			$domainname = $_GET['domainname'];
+			$thostname = $_GET['thostname'];
+			$osname = $_GET['osname'];
 			$id="";
 			
-			$fqdn = "$hostname.$domain_suffix";
+			$fqdn = "$thostname.$domainname";
 
 			//echo $fqdn;
 
@@ -79,7 +80,7 @@ if(isset($_GET['id'])) {
 				function newPage(num) {
 				var url=new Array();
 				url[0]='exec.deleteserver.php?<?php echo "fqdn=$fqdn"; ?>';	
-				url[1]="<?php echo 'serverdet.php?id=0&query='.$hostname."&domain_suffix=".$domain_suffix; ?>";	
+				url[1]="<?php echo 'serverdet.php?id=0&thostname='.$thostname.'&domainname='.$domainname."&osname=".$osname; ?>";
 				window.location=url[num];``
 				}
 				// 

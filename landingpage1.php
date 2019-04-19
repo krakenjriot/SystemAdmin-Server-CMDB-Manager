@@ -33,6 +33,11 @@ if(isset($_GET['fqdn'])) {
 } else {
 	$fqdn = "";
 }
+
+
+$_SESSION['osname'] = ""; // RESET OS CACHED
+
+
 ?>
 
 

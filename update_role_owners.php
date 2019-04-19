@@ -24,21 +24,25 @@ $access_lvl  = $_SESSION['access_lvl'];
 <?php 
 
 		//*************************************************
-		if(isset($_GET['domain_suffix'])) {
-			$domain_suffix = $_GET['domain_suffix'];
+		//*************************************************
+		if(isset($_GET['domainname'])) {
+			$domainname = $_GET['domainname'];
 		}
 		
-		if(isset($_GET['hostname'])) {
-			$hostname = $_GET['hostname'];
-		}	
-		
+		if(isset($_GET['thostname'])) {
+			$thostname = $_GET['thostname'];
+		}		
+
+		if(isset($_GET['osname'])) {
+			$osname = $_GET['osname'];
+		}		
 		////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////
 		////////////////////////////////////////////////////////////
 		include_once 'libs/dbh.inc.php';
 		include_once 'func/func.php';
 		
-		$fqdn = $hostname.".".$domain_suffix;
+		$fqdn = $thostname.".".$domainname;
 		$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$fqdn'";
 		//$sql = "SELECT * FROM tbl_machine WHERE fqdn ='aproscomms701.nwc.com.sa'";
 		$result = mysqli_query($conn, $sql);
@@ -267,7 +271,7 @@ $access_lvl  = $_SESSION['access_lvl'];
 	<script type="text/javascript">
 	function newPage(num) {
 	var url=new Array();
-	url[0]="<?php echo 'serverdet.php?id=0&query='.$hostname."&domain_suffix=".$domain_suffix; ?>";
+	url[0]='<?php echo "serverdet.php?id=0&thostname=".$thostname."&domainname=".$domainname."&osname=".$osname; ?>';
 	url[1]="forgotpass.php";
 	url[2]="resetpass.php";
 	window.location=url[num];``
@@ -301,7 +305,7 @@ $access_lvl  = $_SESSION['access_lvl'];
 
 
 <div class="form-wrapper">
-  <form action="update_role_owners_exec.php?hostname=<?php echo $hostname; ?>&domain_suffix=<?php echo $domain_suffix; ?>" class="form" method="post">
+  <form action="update_role_owners_exec.php?thostname=<?php echo $thostname; ?>&domainname=<?php echo $domainname; ?>&osname=<?php echo $osname; ?>" class="form" method="post">
   <label><h4><b>Update Roles</b> (<?php echo strtoupper($fqdn); ?>)</h4></label>
     <div class="form-group">
       <label class="form-label" id="rolename" for="first">Role Name</label>

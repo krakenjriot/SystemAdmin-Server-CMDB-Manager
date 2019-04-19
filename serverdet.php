@@ -24,211 +24,223 @@ if($_SESSION['access_lvl']==0) {
 
 
 	
-	$query = $_GET['query'];	
-	$hostname = $query;
+	$thostname = $_GET['thostname'];	
+	//$hostname = $query;
 	$id = $_GET['id'];
-	$domain_suffix = $_GET['domain_suffix'];
+	$domainname= $_GET['domainname'];
 	
 	
-	//check if ip address
-	if(filter_var($query, FILTER_VALIDATE_IP) !== false) {
-		//echo "is an ip";
-		//echo $query." ";
-		$query = gethostbyaddr($query);
-		//echo $query;
-		preg_match('@^(?:http://)?([^/]+)@i', $query, $matches);
-		$host = $matches[1];
-		//else make $host your FQDN and skip the above segment
-		preg_match("/^(.*?)\.(.*)/", $host, $rest);			
-		if($rest){$query = $rest[1];}
-		if($rest){$domain_suffix = $rest[2];}		
-		
-	} else {
-		//echo "is not an ip";
-		//if query is string
-		//check query if valid fqdn
-		//if host needs to be striped from a URL
-		preg_match('@^(?:http://)?([^/]+)@i', $query, $matches);
-		$host = $matches[1];
-		//else make $host your FQDN and skip the above segment
-		preg_match("/^(.*?)\.(.*)/", $host, $rest);			
-		if($rest){$query = $rest[1];}
-		if($rest){$domain_suffix = $rest[2];}		
-	}
 	
-
+	$osname =  $_GET['osname'];
 	
-		
-		
-		/////////////////////////////////////////////////////////////
-		/////////////////////////////////////////////////////////////
-		//sleep(100);
-		$a = "";
-		$b = "";
-		$pingresult = 0;
-		//echo $domain_suffix." ";
-			if($domain_suffix=="tag_domainname"){
-				foreach(array('nwc.com.sa','dev.hq.nwc','dmz.nwc') as $a){
-					$pingresult = shell_exec('C:\xampp\htdocs\hwinv\batchfile\pingme.bat '.$query.'.'.$a);
-					if($pingresult==1){ 						
-						$domain_suffix = $a; 							
-						break; 
-					}
-						
-				}			
-			}//if
-			else 
-			{
-				//$domain_suffix = "name_cannot_resolve"; 
-				$pingresult = shell_exec('C:\xampp\htdocs\hwinv\batchfile\pingme.bat '.$query.'.'.$domain_suffix);		
-			}	
-			
-		
-		
-	if($domain_suffix=="tag_domainname"){
-		$query = "$query.cannot_resolve";	
-	} else {
-		$query = "$query.$domain_suffix";		
-	}
-		
-	//echo $query;
-	 
-	switch ($domain_suffix) {
-			case "nwc.com.sa":
-				$b = "nwc";
-				break;
-			case "dev.hq.nwc":
-				$b = "dev";
-				break;					
-			case "dmz.nwc":
-				$b = "dmz";
-				break;
-			default:															
-				$b = "xxx";
-				break;			
-		} //switch
-		
-		
-		$urlip = "$b.scominv.nwc.com.sa";		
-		
-	 /*
-	switch ($domain_suffix) {
-			case "nwc.com.sa":
-				$b = "10.48.21.55";
-				break;
-			case "dev.hq.nwc":
-				$b = "10.68.140.55";
-				break;					
-			case "dmz.nwc":
-				$b = "10.49.27.55";
-				break;
-			default:															
-				$b = "xxx";
-				break;			
-		} //switch
-		
-		
-		$urlip = "$b";		
-		*/
-		//echo $urlip."</br>";				
-		
-		//echo "query=$query | a=$a | b=$b | domain_suffix=$domain_suffix | pingresult=$pingresult</br>"; 
-	
-	#####################################################################################################
-	#####################################################################################################
-	#####################################################################################################
-
-	#####################################################################################################		
+	//echo $osname;
 	
 	
-	//$query = $query."nwc.com.sa";
-	//$query = $query."nwc.com.sa";
-	//$query = $query."nwc.com.sa";
+	$urlip = "10.48.21.55";
 	
-	
-	/*
-	//if query does not have a domain suffix process below code
-	if($id=="NA"){//
-		$query = $query.".nwc.com.sa";				
-		if(isset($_GET['domain_suffix'])) {///
-		$domain_suffix = urldecode($_GET['domain_suffix']);
-		$query = $query.".".$domain_suffix;
-		}///			
-	}//
-	//if query does have a domain suffix process below code
+	////check if ip address
+	//if(filter_var($query, FILTER_VALIDATE_IP) !== false) {
+	//	//echo "is an ip";
+	//	//echo $query." ";
+	//	$query = gethostbyaddr($query);
+	//	//echo $query;
+	//	preg_match('@^(?:http://)?([^/]+)@i', $query, $matches);
+	//	$host = $matches[1];
+	//	//else make $host your FQDN and skip the above segment
+	//	preg_match("/^(.*?)\.(.*)/", $host, $rest);			
+	//	if($rest){$query = $rest[1];}
+	//	if($rest){$domainname= $rest[2];}		
+	//	
+	//} else {
+	//	//echo "is not an ip";
+	//	//if query is string
+	//	//check query if valid fqdn
+	//	//if host needs to be striped from a URL
+	//	preg_match('@^(?:http://)?([^/]+)@i', $query, $matches);
+	//	$host = $matches[1];
+	//	//else make $host your FQDN and skip the above segment
+	//	preg_match("/^(.*?)\.(.*)/", $host, $rest);			
+	//	if($rest){$query = $rest[1];}
+	//	if($rest){$domainname= $rest[2];}		
+	//}
+	//
+    //
+	//
+	//	
+	//	
+	//	/////////////////////////////////////////////////////////////
+	//	/////////////////////////////////////////////////////////////
+	//	//sleep(100);
+	//	$a = "";
+	//	$b = "";
+	//	$pingresult = 0;
+	//	//echo $domainname." ";
+	//		if($domainname=="tag_domainname"){
+	//			foreach(array('nwc.com.sa','dev.hq.nwc','dmz.nwc') as $a){
+	//				$pingresult = shell_exec('C:\xampp\htdocs\hwinv\batchfile\pingme.bat '.$query.'.'.$a);
+	//				if($pingresult==1){ 						
+	//					$domainname= $a; 							
+	//					break; 
+	//				}
+	//					
+	//			}			
+	//		}//if
+	//		else 
+	//		{
+	//			//$domainname= "name_cannot_resolve"; 
+	//			$pingresult = shell_exec('C:\xampp\htdocs\hwinv\batchfile\pingme.bat '.$query.'.'.$domainname);		
+	//		}	
+	//		
+	//	
+	//	
+	//if($domainname=="tag_domainname"){
+	//	$query = "$query.cannot_resolve";	
+	//} else {
+	//	$query = "$query.$domainname";		
+	//}
+	//	
+	////echo $query;
+	// 
+	//switch ($domainname) {
+	//		case "nwc.com.sa":
+	//			$b = "nwc";
+	//			break;
+	//		case "dev.hq.nwc":
+	//			$b = "dev";
+	//			break;					
+	//		case "dmz.nwc":
+	//			$b = "dmz";
+	//			break;
+	//		default:															
+	//			$b = "xxx";
+	//			break;			
+	//	} //switch
+	//	
+	//	
+	//	$urlip = "$b.scominv.nwc.com.sa";		
+	//	
+	// /*
+	//switch ($domainname) {
+	//		case "nwc.com.sa":
+	//			$b = "10.48.21.55";
+	//			break;
+	//		case "dev.hq.nwc":
+	//			$b = "10.68.140.55";
+	//			break;					
+	//		case "dmz.nwc":
+	//			$b = "10.49.27.55";
+	//			break;
+	//		default:															
+	//			$b = "xxx";
+	//			break;			
+	//	} //switch
+	//	
+	//	
+	//	$urlip = "$b";		
+	//	*/
+	//	//echo $urlip."</br>";				
+	//	
+	//	//echo "query=$query | a=$a | b=$b | domainname=$domainname| pingresult=$pingresult</br>"; 
+	//
+	//#####################################################################################################
+	//#####################################################################################################
+	//#####################################################################################################
+    //
+	//#####################################################################################################		
 	//
 	//
+	////$query = $query."nwc.com.sa";
+	////$query = $query."nwc.com.sa";
+	////$query = $query."nwc.com.sa";
 	//
 	//
-	
-	
-	/* our simple php ping function 
-	$host = "10.48.10.111";
-	function ping($host)
-	{
-			exec(sprintf('ping -c 1 -W 5 %s', escapeshellarg($host)), $res, $rval);
-			return $rval === 0;
-	}
-		
-
-	$up = ping($host);
-
-	echo "UP=".$up;	
-	
-	//echo $query;
-	*/
+	///*
+	////if query does not have a domain suffix process below code
+	//if($id=="NA"){//
+	//	$query = $query.".nwc.com.sa";				
+	//	if(isset($_GET['domainname'])) {///
+	//	$domainname= urldecode($_GET['domainname']);
+	//	$query = $query.".".$domainname;
+	//	}///			
+	//}//
+	////if query does have a domain suffix process below code
+	////
+	////
+	////
+	////
+	//
+	//
+	///* our simple php ping function 
+	//$host = "10.48.10.111";
+	//function ping($host)
+	//{
+	//		exec(sprintf('ping -c 1 -W 5 %s', escapeshellarg($host)), $res, $rval);
+	//		return $rval === 0;
+	//}
+	//	
+    //
+	//$up = ping($host);
+    //
+	//echo "UP=".$up;	
+	//
+	////echo $query;
+	//*/
 	
 	////////////////////////////////////////////////////////////////////////////////////////
 	//$pingresult = 1;
 	//$pingresult = shell_exec('ping -n 1 '.$hostname.'');
 	//$pingresult = shell_exec('C:\xampp\htdocs\hwinv\batchfile\pingme.bat '.$query.'');	
+
+	//check if machine is pingable!
+	$pingresult = shell_exec('C:\xampp\htdocs\hwinv\batchfile\pingme.bat '.$thostname.'.'.$domainname);	
 	$_SESSION['pingresult'] = $pingresult;
 	$access_lvl  = $_SESSION['access_lvl'];
 	//$ipaddress = $_SESSION['ipaddress'];
 	
 	
+	
+
 	#####################################################################################################
 	//check if server is in database, and get the osname same time
 	include_once 'libs/dbh.inc.php';
 	include_once 'func/func.php';
-    $sql = "SELECT * FROM tbl_machine WHERE fqdn='$query'";
+    $sql = "SELECT * FROM tbl_machine WHERE fqdn='$thostname'";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
 	$row = mysqli_fetch_assoc($result);		
 	#####################################################################################################
 	
 	
-	
 	if($pingresult==0){
 		$netstat = "<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;OFFLINE&nbsp;</span></font>";	
-		if($resultCheck){
-			$osname = strtolower( $row['osname']);
-		} 
-		else {
-			$osname = "server";
-		}
+		//if($resultCheck){
+		//	$osname = strtolower( $row['osname']);
+		//} 
+		//else {
+		//	$osname = "server";
+		//}
 			
 	}
 	if($pingresult==1){
 		#$netstat = "(</strong><font color='SLATEBLUE' >Online</font></strong>)";	
 		$netstat = "<font color='LIME' ><span style='background-color: FORESTGREEN'>&nbsp;ONLINE&nbsp;</span></font>";	
 	/////////////////////////////////////////////////////////////////////
-		if($resultCheck){
-			$osname = strtolower( $row['osname']);
-		}
-		else {
-			$osname = shell_exec('C:\xampp\htdocs\hwinv\batchfile\getOSname.bat '.$query.'');
-		} 	
+		//if($resultCheck){
+		//	$osname = strtolower( $row['osname']);
+		//}
+		//else {
+		//	//$osname = shell_exec('C:\xampp\htdocs\hwinv\batchfile\getOSname.bat '.$query.'');
+		//} 	
 	/////////////////////////////////////////////////////////////////////		
 	}
 
 
-	$server = 1;
-	$_SESSION['osname'] = $osname;
+	$server = 0;
+	//$_SESSION['osname'] = $osname;
 	$osname_lower = strtolower($osname);
-	if (!fnmatch("*server*",$osname_lower)){
-		//echo "this is server...$osname_lower";
-		$server = 0;	
+	if (fnmatch("*server*",$osname_lower)){
+	//	//echo "this is server...$osname_lower";
+		$server = 1;	
 	}
 	
 	
@@ -346,7 +358,7 @@ if($_SESSION['access_lvl']==0) {
 	}
 
 
-/*
+
 	if (filter_var($fqdn, FILTER_VALIDATE_DOMAIN)) {
 		//if valid domain continue
 		$validdomain = 1;
@@ -356,7 +368,22 @@ if($_SESSION['access_lvl']==0) {
 	}
 */ //MTPROESMAPS001
 
-	$fqdn = $query;
+	//if(empty($_SESSION['osname'])){
+	//	$server = 0;
+	//	$osname = shell_exec('C:\xampp\htdocs\hwinv\batchfile\getOSname.bat '.$thostname.'');
+	//	$_SESSION['osname'] = $osname;
+	//} else {
+	//	$osname = $_SESSION['osname'];	
+	//}
+	//
+	//
+	//
+	//$osname_lower = strtolower($osname);
+	//if (fnmatch("*server*",$osname_lower)){
+	//	$server = 1;	
+	//}
+	
+	$fqdn = $thostname.".".$domainname;
 	###########################################################################################
 					$rdp_file = "@ECHO OFF
 
@@ -438,27 +465,27 @@ if($_SESSION['access_lvl']==0) {
 
 	///////////////////////////////////////////////////////	
 	///////////////////////////////////////////////////////	
-			if($server==0){//						
-				//echo "</br>(You are authorized to view this node!)";
-				//allowed 				
-				$server_type = "CLIENT";				
-			}	
-			if($server==1){
-			//					
-				$server_type = "SERVER";								
-			}				///////////////////////////////////////////////////////	
+			//if($server==0){//						
+			//	//echo "</br>(You are authorized to view this node!)";
+			//	//allowed 				
+			//	$server_type = "CLIENT";				
+			//}	
+			//if($server==1){
+			////					
+			//	$server_type = "SERVER";								
+			//}				///////////////////////////////////////////////////////	
 	///////////////////////////////////////////////////////	
 	///////////////////////////////////////////////////////	
 	
-			$sdip = gethostbyname($query);
+			$sdip = gethostbyname($thostname);
 			///////////////////////////////////////////
 			//if($resultCheck == 1) {echo $xx = "(Database Record Exist)"; }
 			//else { echo $xx = "(Database Record Empty!)"; }
-			echo "<b>".$server_type.": </b>". strtoupper($query);
-			echo " / ".ucwords($osname);
+			echo "<b>Machine: </b>". strtoupper($thostname);
+			echo " / ".strtoupper($osname);
 			echo " / $sdip";
 			echo " $netstat";
-			if($pingresult == 0) echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='add_server_manual.php?hostname=".$osname."&domain_suffix=".$domain_suffix."'>( Manually Add? )</a>";
+			if($pingresult == 0) echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='add_server_manual.php?thostname=".$thostname."&domainname=".$domainname."&osname=".$osname."'>( Manually Add? )</a>";
 
 			
 			
@@ -495,20 +522,20 @@ if($_SESSION['access_lvl']==0) {
 		include_once 'libs/dbh.inc.php';
 		include_once 'func/func.php';
 		//
-		$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$query'";
+		$sql = "SELECT * FROM tbl_machine WHERE fqdn = '".$thostname.".".$domainname."'";
 		$result = mysqli_query($conn, $sql);
 		$resultCheck = mysqli_num_rows($result);		
 		if($row = mysqli_fetch_assoc($result)){
 			
 			echo "</br><b>ROLE NAME: </b>". strtoupper($row['role_name']);
 			echo "<b> / FUNCTION: </b>". strtoupper($row['role_function']); 
-			echo "&nbsp;&nbsp;<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='update_role_owners.php?hostname=$hostname&domain_suffix=$domain_suffix'>EDIT</a>&nbsp;&nbsp;</span></font>";
+			echo "&nbsp;&nbsp;<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='update_role_owners.php?thostname=".$thostname."&domainname=".$domainname."&osname=".$osname."'>EDIT</a>&nbsp;&nbsp;</span></font>";
 			echo "</br><b>ROLE OWNER(S): </b>". strtoupper($row['role_owners']); 
 			echo "</br><b>BU: </b>". strtoupper($row['BU']); 
 			echo "&nbsp;&nbsp;<b>ENVIRONMENT: </b>". strtoupper($row['ENV']); 
 			echo "&nbsp;&nbsp;<b>PRIORITY: </b>". strtoupper($row['PRIORITY']); 
 			echo "&nbsp;&nbsp;<b>SEVERITY: </b>". strtoupper($row['SEVERITY']); 			
-			echo "&nbsp;&nbsp;<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='update-other-details.php?hostname=$hostname&domain_suffix=$domain_suffix'>EDIT</a>&nbsp;&nbsp;</span></font>";
+			echo "&nbsp;&nbsp;<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='update_other_details.php?thostname=".$thostname."&domainname=".$domainname."&osname=".$osname."'>EDIT</a>&nbsp;&nbsp;</span></font>";
 			 
 			echo "</br></br>";
 

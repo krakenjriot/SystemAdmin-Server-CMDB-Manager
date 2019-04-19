@@ -24,12 +24,12 @@ $access_lvl  = $_SESSION['access_lvl'];
 <?php 
 
 		//*************************************************
-		if(isset($_GET['domain_suffix'])) {
-			$domain_suffix = $_GET['domain_suffix'];
-		}
+		//if(isset($_GET['domainname'])) {
+		//	$domainname = $_GET['domainname'];
+		//}
 		
-		if(isset($_GET['hostname'])) {
-			$hostname = $_GET['hostname'];
+		if(isset($_GET['thostname'])) {
+			$thostname = $_GET['thostname'];
 		}	
 		
 		////////////////////////////////////////////////////////////
@@ -38,7 +38,14 @@ $access_lvl  = $_SESSION['access_lvl'];
 		include_once 'libs/dbh.inc.php';
 		include_once 'func/func.php';
 		
-		if(isset($_GET['hostname']) && isset($_GET['domain_suffix'])) $fqdn = $hostname.".".$domain_suffix;
+		
+			//if($domainname == "NA") $domainname = "nwc.com.sa";
+						
+			
+		
+			
+		//$fqdn = $thostname.".".$domainname;
+		
 		
 		//$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$fqdn'";
 		////$sql = "SELECT * FROM tbl_machine WHERE fqdn ='aproscomms701.nwc.com.sa'";
@@ -126,23 +133,38 @@ $access_lvl  = $_SESSION['access_lvl'];
 
 
 <?php
-		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//
-		#role_name		
-		if(empty($rolename)){
-			
-			echo '.focused .form-label#rolename {
+
+
+		#domainname		
+		if(empty($domainname)){			
+			echo '.focused .form-label#domainname {
 				-webkit-transform: translateY(-125%);
 				transform: translateY(-125%);
 				font-size: .75em;
 			}';
 		}
-
-		if(!empty($rolename)){
-			
-			echo '.form-label#rolename {
+		if(!empty($domainname)){			
+			echo '.form-label#domainname {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		#hostfqdn		
+		if(empty($hostfqdn)){			
+			echo '.focused .form-label#hostfqdn {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($hostfqdn)){			
+			echo '.form-label#hostfqdn {
 				-webkit-transform: translateY(-125%);
 				transform: translateY(-125%);
 				font-size: .75em;
@@ -152,41 +174,16 @@ $access_lvl  = $_SESSION['access_lvl'];
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//	
-		#roledescriptionss		
-		if(empty($roledescriptions)){
-			
-			echo '.focused .form-label#roledescriptions {
+		#rdpipv4		
+		if(empty($rdpipv4)){			
+			echo '.focused .form-label#rdpipv4 {
 				-webkit-transform: translateY(-125%);
 				transform: translateY(-125%);
 				font-size: .75em;
 			}';
 		}
-
-		if(!empty($roledescriptions)){
-			
-			echo '.form-label#roledescriptions {
-				-webkit-transform: translateY(-125%);
-				transform: translateY(-125%);
-				font-size: .75em;
-			}';
-		}
-		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//			
-		#rolefunction		
-		if(empty($rolefunction)){
-			
-			echo '.focused .form-label#rolefunction {
-				-webkit-transform: translateY(-125%);
-				transform: translateY(-125%);
-				font-size: .75em;
-			}';
-		}
-
-		if(!empty($rolefunction)){
-			
-			echo '.form-label#rolefunction {
+		if(!empty($rdpipv4)){			
+			echo '.form-label#rdpipv4 {
 				-webkit-transform: translateY(-125%);
 				transform: translateY(-125%);
 				font-size: .75em;
@@ -196,19 +193,17 @@ $access_lvl  = $_SESSION['access_lvl'];
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//	
-		#roleowners		
-		if(empty($roleowners)){
-			
-			echo '.focused .form-label#roleowners {
-				-webkit-transform: translateY(-125%);
-				transform: translateY(-125%);
-				font-size: .75em;
-			}';
-		}
 
-		if(!empty($roleowners)){
-			
-			echo '.form-label#roleowners {
+		#rdpipv4mac		
+		if(empty($rdpipv4mac)){			
+			echo '.focused .form-label#rdpipv4mac {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($rdpipv4mac)){			
+			echo '.form-label#rdpipv4mac {
 				-webkit-transform: translateY(-125%);
 				transform: translateY(-125%);
 				font-size: .75em;
@@ -217,7 +212,333 @@ $access_lvl  = $_SESSION['access_lvl'];
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//			
+		//---------------------------------------------------------------//	
+
+		#defaultgateway		
+		if(empty($defaultgateway)){			
+			echo '.focused .form-label#defaultgateway {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($defaultgateway)){			
+			echo '.form-label#defaultgateway {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#dns1		
+		if(empty($dns1)){			
+			echo '.focused .form-label#dns1 {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($dns1)){			
+			echo '.form-label#dns1 {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#dns2		
+		if(empty($dns2)){			
+			echo '.focused .form-label#dns2 {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($dns2)){			
+			echo '.form-label#dns2 {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#subnetmask		
+		if(empty($subnetmask)){			
+			echo '.focused .form-label#subnetmask {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($subnetmask)){			
+			echo '.form-label#subnetmask {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#machinetype		
+		if(empty($machinetype)){			
+			echo '.focused .form-label#machinetype {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($machinetype)){			
+			echo '.form-label#machinetype {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#serialnumber		
+		if(empty($serialnumber)){			
+			echo '.focused .form-label#serialnumber {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($serialnumber)){			
+			echo '.form-label#serialnumber {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#model		
+		if(empty($model)){			
+			echo '.focused .form-label#model {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($model)){			
+			echo '.form-label#model {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#osname		
+		if(empty($osname)){			
+			echo '.focused .form-label#osname {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($osname)){			
+			echo '.form-label#osname {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#totalphysicalmemorymb		
+		if(empty($totalphysicalmemorymb)){			
+			echo '.focused .form-label#totalphysicalmemorymb {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($totalphysicalmemorymb)){			
+			echo '.form-label#totalphysicalmemorymb {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#cpuname		
+		if(empty($cpuname)){			
+			echo '.focused .form-label#cpuname {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($cpuname)){			
+			echo '.form-label#cpuname {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#cpumanufacturer		
+		if(empty($cpumanufacturer)){			
+			echo '.focused .form-label#cpumanufacturer {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($cpumanufacturer)){			
+			echo '.form-label#cpumanufacturer {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#cpuclockspeed		
+		if(empty($cpuclockspeed)){			
+			echo '.focused .form-label#cpuclockspeed {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($cpuclockspeed)){			
+			echo '.form-label#cpuclockspeed {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#cpunumberofcore		
+		if(empty($cpunumberofcore)){			
+			echo '.focused .form-label#cpunumberofcore {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($cpunumberofcore)){			
+			echo '.form-label#cpunumberofcore {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#cpunumberoflogicalprocessor		
+		if(empty($cpunumberoflogicalprocessor)){			
+			echo '.focused .form-label#cpunumberoflogicalprocessor {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($cpunumberoflogicalprocessor)){			
+			echo '.form-label#cpunumberoflogicalprocessor {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#installeddate		
+		if(empty($installeddate)){			
+			echo '.focused .form-label#installeddate {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($installeddate)){			
+			echo '.form-label#installeddate {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+		#drivec		
+		if(empty($drivec)){			
+			echo '.focused .form-label#drivec {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		if(!empty($drivec)){			
+			echo '.form-label#drivec {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//	
+
+
+
+
+
+		
 ?>
 
 
@@ -268,7 +589,7 @@ $access_lvl  = $_SESSION['access_lvl'];
 	<script type="text/javascript">
 	function newPage(num) {
 	var url=new Array();
-	url[0]="<?php echo 'serverdet.php?id=0&query='.$hostname."&domain_suffix=".$domain_suffix; ?>";
+	url[0]="<?php echo 'serverdet.php?id=0&thostname='.$thostname."&domainname=".$domainname."&osname=".$osname; ?>";
 	url[1]="forgotpass.php";
 	url[2]="resetpass.php";
 	window.location=url[num];``
@@ -302,105 +623,110 @@ $access_lvl  = $_SESSION['access_lvl'];
 
 
 <div class="form-wrapper">
-  <form action="add_server_manual_exec.php?hostname=<?php echo $hostname; ?>&domain_suffix=<?php echo $domain_suffix; ?>" class="form" method="post">
-  <label><h4><b>ADD NEW SERVER</b> (<?php echo strtoupper($fqdn); ?>)</h4></label>
+  <form action="add_server_manual_exec.php?thostname=<?php echo $thostname; ?>&domainname=<?php echo $domainname; ?>" class="form" method="post">
+  <label><h4><b>ADD NEW SERVER</b> (<?php echo strtoupper($thostname); ?>)</h4></label>
 
-  
+    <?php //---------------------------------------------------- //?>
+  <div class="form-group">
+      <label class="form-label" id="domainname" for="first">domainname</label>
+      <input id="first" class="form-input" type="text" name="domainname"  />
+  </div>
+  <?php //---------------------------------------------------- //?>
   <?php //---------------------------------------------------- //?>
   <div class="form-group">
       <label class="form-label" id="hostfqdn" for="first">hostfqdn</label>
-      <input id="first" class="form-input" type="text" name="hostfqdn" value="<?php echo strtoupper($hostfqdn); ?>"/>
+      <input id="first" class="form-input" type="text" name="hostfqdn"  />
   </div>
   <?php //---------------------------------------------------- //?>
   <?php //---------------------------------------------------- //?>
   <div class="form-group">
       <label class="form-label" id="rdpipv4" for="first">rdpipv4</label>
-      <input id="first" class="form-input" type="text" name="rdpipv4" value="<?php echo strtoupper($rdpipv4); ?>"/>
+      <input id="first" class="form-input" type="text" name="rdpipv4"  />
   </div>
   <?php //---------------------------------------------------- //?>
   <div class="form-group">
       <label class="form-label" id="rdpipv4mac" for="first">rdpipv4mac</label>
-      <input id="first" class="form-input" type="text" name="rdpipv4mac" value="<?php echo strtoupper($rdpipv4mac); ?>"/>
+      <input id="first" class="form-input" type="text" name="rdpipv4mac"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="defaultgateway" for="first">defaultgateway</label>
-      <input id="first" class="form-input" type="text" name="defaultgateway" value="<?php echo strtoupper($defaultgateway); ?>"/>
+      <input id="first" class="form-input" type="text" name="defaultgateway"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="dns1" for="first">dns1</label>
-      <input id="first" class="form-input" type="text" name="dns1" value="<?php echo strtoupper($dns1); ?>"/>
+      <input id="first" class="form-input" type="text" name="dns1" />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="dns2" for="first">dns2</label>
-      <input id="first" class="form-input" type="text" name="dns2" value="<?php echo strtoupper($dns2); ?>"/>
+      <input id="first" class="form-input" type="text" name="dns2"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="subnetmask" for="first">subnetmask</label>
-      <input id="first" class="form-input" type="text" name="subnetmask" value="<?php echo strtoupper($subnetmask); ?>"/>
+      <input id="first" class="form-input" type="text" name="subnetmask"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="machinetype" for="first">machinetype</label>
-      <input id="first" class="form-input" type="text" name="machinetype" value="<?php echo strtoupper($machinetype); ?>"/>
+      <input id="first" class="form-input" type="text" name="machinetype"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="serialnumber" for="first">serialnumber</label>
-      <input id="first" class="form-input" type="text" name="serialnumber" value="<?php echo strtoupper($serialnumber); ?>"/>
+      <input id="first" class="form-input" type="text" name="serialnumber"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="model" for="first">model</label>
-      <input id="first" class="form-input" type="text" name="model" value="<?php echo strtoupper($model); ?>"/>
+      <input id="first" class="form-input" type="text" name="model" />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="osname" for="first">osname</label>
-      <input id="first" class="form-input" type="text" name="osname" value="<?php echo strtoupper($osname); ?>"/>
+      <input id="first" class="form-input" type="text" name="osname" />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="totalphysicalmemorymb" for="first">totalphysicalmemorymb</label>
-      <input id="first" class="form-input" type="text" name="totalphysicalmemorymb" value="<?php echo strtoupper($totalphysicalmemorymb); ?>"/>
+      <input id="first" class="form-input" type="text" name="totalphysicalmemorymb"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="cpuname" for="first">cpuname</label>
-      <input id="first" class="form-input" type="text" name="cpuname" value="<?php echo strtoupper($cpuname); ?>"/>
+      <input id="first" class="form-input" type="text" name="cpuname" />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="cpumanufacturer" for="first">cpumanufacturer</label>
-      <input id="first" class="form-input" type="text" name="cpumanufacturer" value="<?php echo strtoupper($cpumanufacturer); ?>"/>
+      <input id="first" class="form-input" type="text" name="cpumanufacturer"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="cpuclockspeed" for="first">cpuclockspeed</label>
-      <input id="first" class="form-input" type="text" name="cpuclockspeed" value="<?php echo strtoupper($cpuclockspeed); ?>"/>
+      <input id="first" class="form-input" type="text" name="cpuclockspeed"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="cpunumberofcore" for="first">cpunumberofcore</label>
-      <input id="first" class="form-input" type="text" name="cpunumberofcore" value="<?php echo strtoupper($cpunumberofcore); ?>"/>
+      <input id="first" class="form-input" type="text" name="cpunumberofcore"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="cpunumberoflogicalprocessor" for="first">cpunumberoflogicalprocessor</label>
-      <input id="first" class="form-input" type="text" name="cpunumberoflogicalprocessor" value="<?php echo strtoupper($cpunumberoflogicalprocessor); ?>"/>
+      <input id="first" class="form-input" type="text" name="cpunumberoflogicalprocessor"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="installeddate" for="first">installeddate</label>
-      <input id="first" class="form-input" type="text" name="installeddate" value="<?php echo strtoupper($installeddate); ?>"/>
+      <input id="first" class="form-input" type="text" name="installeddate"  />
   </div>
   <?php //---------------------------------------------------- //?>
     <div class="form-group">
       <label class="form-label" id="drivec" for="first">drivec</label>
-      <input id="first" class="form-input" type="text" name="drivec" value="<?php echo strtoupper($drivec); ?>"/>
+      <input id="first" class="form-input" type="text" name="drivec"  />
   </div>
  
 	

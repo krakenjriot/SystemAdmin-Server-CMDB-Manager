@@ -8,15 +8,18 @@
 
 
 		//*************************************************
-		if(isset($_GET['domain_suffix'])) {
-			$domain_suffix = $_GET['domain_suffix'];
+		//*************************************************
+		if(isset($_GET['domainname'])) {
+			$domainname = $_GET['domainname'];
 		}
 		
-		if(isset($_GET['hostname'])) {
-			$hostname = $_GET['hostname'];
+		if(isset($_GET['thostname'])) {
+			$thostname = $_GET['thostname'];
 		}	
 		
-		
+		if(isset($_GET['osname'])) {
+			$osname = $_GET['osname'];
+		}			
 
 		//*************************************************
 		if(isset($_POST['BU'])) {
@@ -42,14 +45,14 @@
 		/////////////////////////////////////////////////////////////	
 		include_once 'libs/dbh.inc.php';
 		include_once 'func/func.php';			
-		$fqdn = $hostname.".".$domain_suffix;
+		$fqdn = $thostname.".".$domainname;
 		//$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$fqdn'";	
 		$sql = "UPDATE tbl_machine SET BU='$BU',ENV='$ENV',PRIORITY='$PRIORITY',SEVERITY='$SEVERITY' WHERE fqdn='$fqdn'; ";
 		$result = mysqli_query($conn, $sql);
 		//$resultCheck = mysqli_num_rows($result);
 		
 		if($result){
-			header("location: serverdet.php?id=0&query=".$hostname."&domain_suffix=".$domain_suffix);
+			header("location: serverdet.php?id=0&thostname=".$thostname."&domainname=".$domainname."&osname=".$osname);
 			exit();
 		} else {
 			//header("location: msg.php?val1=Update Failed&val2=Update Success");

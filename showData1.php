@@ -87,10 +87,11 @@ $u_email  = $_SESSION['u_email'];
 			//**********************************************************************************************************************************
 			//$fqdn = $_GET['fqdn'];
 			
-			$domain_suffix = $_GET['domain_suffix'];
-			$hostname = $_GET['query'];
+			$domainname = $_GET['domainname'];
+			$thostname = $_GET['thostname'];
+			$osname = $_GET['osname'];
 			
-			$fqdn = $hostname.".".$domain_suffix;
+			$fqdn = $thostname.".".$domainname;
 			
 			
 			

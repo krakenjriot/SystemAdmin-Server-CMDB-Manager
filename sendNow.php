@@ -139,10 +139,11 @@ $u_email  = $_SESSION['u_email'];
 			//**********************************************************************************************************************************
 			//START - CONNECT DB AND PREPARE QUERY
 			//**********************************************************************************************************************************
-			$domain_suffix = $_GET['domain_suffix'];
-			$hostname = $_GET['query'];
+			$domainname = $_GET['domainname'];
+			$thostname = $_GET['thostname'];
+			$osname = $_GET['osname'];
 			
-			$fqdn = $hostname.".".$domain_suffix;
+			$fqdn = $thostname.".".$domainname;
 			
 			$config= array(
 				'DB_USERNAME' => 'root',

@@ -2,7 +2,7 @@
 $menu_reachable = 
 "<ul>
 <li><a href='http://$urlip/kraken/livedata.php?urlpage=getdetailinventory&fqdn=$fqdn' target='_blank'>Show Live Data (Realtime)</a></li>						
-<!--<li><a href='showData1.php?query=$hostname&domain_suffix=$domain_suffix' target='_blank'>Show Static Data (Database)</a></li>-->
+<!--<li><a href='showData1.php?thostname=$thostname&domainname=$domainname&osname=$osname' target='_blank'>Show Static Data (Database)</a></li>-->
 <li><a href='http://$urlip/kraken/livedata.php?urlpage=listprogramfilefolder&fqdn=$fqdn' target='_blank'>Show Program Files Dir.</a></li>
 <!--<li><a href='http://$urlip/kraken/livedata.php?urlpage=getPrograms&fqdn=$fqdn' target='_blank'>Get Program Installed</a></li>-->
 <li><a href='http://$urlip/kraken/livedata.php?urlpage=perfv1&fqdn=$fqdn' target='_blank'>Show Machine Performance</a></li>
@@ -14,7 +14,7 @@ $menu_reachable =
 <li><a href='http://$urlip/kraken/livedata.php?urlpage=currentloggedusers&fqdn=$fqdn' target='_blank'>Currently Logged Users</a></li>
 <li><a href='http://$urlip/kraken/livedata.php?urlpage=getscreenmonitor&fqdn=$fqdn' target='_blank'>Get Screen Monitor Det.</a></li>
 <li><a href='http://$urlip/kraken/livedata.php?urlpage=getdiskdetails&fqdn=$fqdn' target='_blank'>Get Disk Details</a></li>
-<li><a href='sendNow.php?query=$hostname&domain_suffix=$domain_suffix' target='_blank'>Get/Share/Export CSV</a></li>
+<li><a href='sendNow.php?thostname=$thostname&domainname=$domainname&osname=$osname' target='_blank'>Get/Share/Export CSV</a></li>
 
 <!--<li><a href='#'>Show Disk Details</a></li>
 <li><a href='#'>Show Owners</a></li>-->
@@ -23,13 +23,13 @@ $menu_reachable =
 
 $menu_unreachable = 
 "<ul>
-<li><a href='showData1.php?query=$hostname&domain_suffix=$domain_suffix' target='_blank'>Show Static Data (Database)</a></li>
+<li><a href='showData1.php?thostname=$thostname&domainname=$domainname&osname=$osname' target='_blank'>Show Static Data (Database)</a></li>
 </ul>";
 
 $menu_showdatabaselink = 
 "<ul>
-<li><a href='deleteserver.php?query=$hostname&domain_suffix=$domain_suffix'>Permanently Delete Records</a></li>
-<li><a href='showData1.php?query=$hostname&domain_suffix=$domain_suffix' target='_blank'>Show Static Data (Database)</a></li>
+<li><a href='deleteserver.php?thostname=$thostname&domainname=$domainname&osname=$osname'>Permanently Delete Records</a></li>
+<li><a href='showData1.php?thostname=$thostname&domainname=$domainname&osname=$osname' target='_blank'>Show Static Data (Database)</a></li>
 </ul>";
 
 
@@ -37,11 +37,11 @@ $menu_showdatabaselink =
 $menu_showdata = 
 "<ul>
 
-<li><a href='showData1.php?query=$hostname&domain_suffix=$domain_suffix' target='_blank'>Show Static Data (Database)</a></li>
+<li><a href='showData1.php?thostname=$thostname&domainname=$domainname&osname=$osname' target='_blank'>Show Static Data (Database)</a></li>
 </ul>";
 
 $menu_deleterecord = 
 "<ul>
-<li><a href='deleteserver.php?query=$hostname&domain_suffix=$domain_suffix'>Permanently Delete Records</a></li>
+<li><a href='deleteserver.php?thostname=$thostname&domainname=$domainname&osname=$osname'>Permanently Delete Records</a></li>
 
 </ul>";

@@ -28,11 +28,10 @@ if($_SESSION['access_lvl']==0) {
 <?php
 require_once 'db.php';
 // Output HTML formats
-
 $html = "";	
 $html = '<tr>';
 $html .= '<td class="small">tag_id</td>';
-$html .= '<td class="small"><a href="serverdet.php?id=tag_id&query=tag_fqdn2&domain_suffix=tag_domainname" target="_blank" >tag_fqdn1</a></td>';
+$html .= '<td class="small"><a href="serverdet.php?id=tag_id&thostname=tag_fqdn2&domainname=tag_domainname&osname=tag_osname" target="_blank" >tag_fqdn1</a></td>';
 $html .= '<td class="small">tag_hostfqdn</td>';
 $html .= '<td class="small">tag_rdpipv4</td>';
 $html .= '<td class="small">tag_mac</td>';
@@ -42,8 +41,6 @@ $html .= '<td class="small">tag_osname</td>';
 //$html .= '<td class="small"><a href="sendNow.php?id=tag_id&query=tag_fqdn2&domain_suffix=tag_domainname">Send</a></td>';
 //$html .= '<td class="small"><a href="deleteserver.php?id=tag_id&query=tag_fqdn2">Delete</a></td>';
 $html .= '</tr>';
-
-
 //
 
 //$osname = $_SESSION['osname'];
@@ -121,6 +118,7 @@ if (strlen($search_string) >= 1 && $search_string !== ' ') {
 		$o = str_replace('tag_serialnumber', 'NA', $o);
 		$o = str_replace('tag_model', 'NA', $o);
 		$o = str_replace('tag_osname', 'NA', $o);
+		$o = str_replace('tag_domainname', 'NA', $o);
 		// Output
 		echo($o);
 	}

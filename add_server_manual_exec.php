@@ -4,12 +4,12 @@
 
 
 		//*************************************************
-		if(isset($_GET['domain_suffix'])) {
-			$domainname = $_GET['domain_suffix'];
+		if(isset($_GET['domainname'])) {
+			$domainname = $_GET['domainname'];
 		}
 		
-		if(isset($_GET['hostname'])) {
-			$thostname = $_GET['hostname'];
+		if(isset($_GET['thostname'])) {
+			$thostname = $_GET['thostname'];
 		}	
 		//*************************************************
 		
@@ -111,7 +111,7 @@
 		/////////////////////////////////////////////////////////////	
 		include_once 'libs/dbh.inc.php';
 		include_once 'func/func.php';			
-		$fqdn = $hostname.".".$domain_suffix;
+		//$fqdn = $hostname.".".$domain_suffix;
 		//$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$fqdn'";	
 		//$sql = "UPDATE tbl_machine SET role_name='$rolename',role_function='$rolefunction',role_owners='$roleowners' WHERE fqdn='$fqdn'; ";
 				$sql  = "INSERT INTO tbl_machine ( ";
@@ -122,20 +122,20 @@
 				if(!empty($rdpipv4)) $sql .= ",rdpipv4"; 				
 				if(!empty($rdpipv4mac)) $sql .= ",rdpipv4mac"; 				
 				if(!empty($defaultgateway)) $sql .= ",defaultgateway"; 				
-				if(!empty($dns1)) $sql .= ",dns1"; 				
-				if(!empty($dns2)) $sql .= ",dns2"; 				
-				if(!empty($subnetmask)) $sql .= ",subnetmask"; 				
-				if(!empty($machinetype)) $sql .= ",machinetype"; 				
-				if(!empty($serialnumber)) $sql .= ",serialnumber"; 				
-				if(!empty($model)) $sql .= ",model"; 				
-				if(!empty($osname)) $sql .= ",osname"; 				
-				if(!empty($totalphysicalmemorymb)) $sql .= ",totalphysicalmemorymb"; 				
-				if(!empty($cpuname)) $sql .= ",cpuname"; 				
-				if(!empty($cpumanufacturer)) $sql .= ",cpumanufacturer"; 				
-				if(!empty($cpuclockspeed)) $sql .= ",cpuclockspeed"; 				
-				if(!empty($cpunumberofcore)) $sql .= ",cpunumberofcore"; 				
-				if(!empty($cpunumberoflogicalprocessor)) $sql .= ",cpunumberoflogicalprocessor"; 				
-				if(!empty($installeddate)) $sql .= ",installeddate"; 
+				//if(!empty($dns1)) $sql .= ",dns1"; 				
+				//if(!empty($dns2)) $sql .= ",dns2"; 				
+				//if(!empty($subnetmask)) $sql .= ",subnetmask"; 				
+				//if(!empty($machinetype)) $sql .= ",machinetype"; 				
+				//if(!empty($serialnumber)) $sql .= ",serialnumber"; 				
+				//if(!empty($model)) $sql .= ",model"; 				
+				//if(!empty($osname)) $sql .= ",osname"; 				
+				//if(!empty($totalphysicalmemorymb)) $sql .= ",totalphysicalmemorymb"; 				
+				//if(!empty($cpuname)) $sql .= ",cpuname"; 				
+				//if(!empty($cpumanufacturer)) $sql .= ",cpumanufacturer"; 				
+				//if(!empty($cpuclockspeed)) $sql .= ",cpuclockspeed"; 				
+				//if(!empty($cpunumberofcore)) $sql .= ",cpunumberofcore"; 				
+				//if(!empty($cpunumberoflogicalprocessor)) $sql .= ",cpunumberoflogicalprocessor"; 				
+				//if(!empty($installeddate)) $sql .= ",installeddate"; 
 				
 				//if(!empty($role_name)) $sql .= ",role_name"; 
 				//if(!empty($role_function)) $sql .= ",role_function"; 
@@ -144,7 +144,7 @@
 								
 				//if(!empty($drivea)) $sql .= ",drivea"; 				
 				//if(!empty($driveb)) $sql .= ",driveb"; 				
-				if(!empty($drivec)) $sql .= ",drivec"; 				
+				//if(!empty($drivec)) $sql .= ",drivec"; 				
 				//if(!empty($drived)) $sql .= ",drived"; 				
 				//if(!empty($drivee)) $sql .= ",drivee"; 				
 				//if(!empty($drivef)) $sql .= ",drivef"; 				
@@ -169,10 +169,10 @@
 				//if(!empty($drivey)) $sql .= ",drivey"; 				
 				//if(!empty($drivez)) $sql .= ",drivez"; 				
 		
-				if(!empty($BU)) $sql .= ",BU"; 
-				if(!empty($ENV)) $sql .= ",ENV"; 					
-				if(!empty($PRIORITY)) $sql .= ",PRIORITY"; 				
-				if(!empty($SEVERITY)) $sql .= ",SEVERITY"; 				
+				//if(!empty($BU)) $sql .= ",BU"; 
+				//if(!empty($ENV)) $sql .= ",ENV"; 					
+				//if(!empty($PRIORITY)) $sql .= ",PRIORITY"; 				
+				//if(!empty($SEVERITY)) $sql .= ",SEVERITY"; 				
 				
 				$sql .= " ) VALUE ( ";				
 				
@@ -183,20 +183,20 @@
 				if(!empty($rdpipv4)) $sql .= ",'".$rdpipv4."'"; 			
 				if(!empty($rdpipv4mac)) $sql .= ",'".$rdpipv4mac."'"; 			
 				if(!empty($defaultgateway)) $sql .= ",'".$defaultgateway."'"; 			
-				if(!empty($dns1)) $sql .= ",'".$dns1."'"; 			
-				if(!empty($dns2)) $sql .= ",'".$dns2."'"; 			
-				if(!empty($subnetmask)) $sql .= ",'".$subnetmask."'"; 			
-				if(!empty($machinetype)) $sql .= ",'".$machinetype."'"; 			
-				if(!empty($serialnumber)) $sql .= ",'".$serialnumber."'"; 			
-				if(!empty($model)) $sql .= ",'".$model."'"; 			
-				if(!empty($osname)) $sql .= ",'".$osname."'"; 			
-				if(!empty($totalphysicalmemorymb)) $sql .= ",'".$totalphysicalmemorymb."'"; 			
-				if(!empty($cpuname)) $sql .= ",'".$cpuname."'"; 			
-				if(!empty($cpumanufacturer)) $sql .= ",'".$cpumanufacturer."'"; 			
-				if(!empty($cpuclockspeed)) $sql .= ",'".$cpuclockspeed."'"; 			
-				if(!empty($cpunumberofcore)) $sql .= ",'".$cpunumberofcore."'"; 			
-				if(!empty($cpunumberoflogicalprocessor)) $sql .= ",'".$cpunumberoflogicalprocessor."'"; 			
-				if(!empty($installeddate)) $sql .= ",'".$installeddate."'"; 
+				//if(!empty($dns1)) $sql .= ",'".$dns1."'"; 			
+				//if(!empty($dns2)) $sql .= ",'".$dns2."'"; 			
+				//if(!empty($subnetmask)) $sql .= ",'".$subnetmask."'"; 			
+				//if(!empty($machinetype)) $sql .= ",'".$machinetype."'"; 			
+				//if(!empty($serialnumber)) $sql .= ",'".$serialnumber."'"; 			
+				//if(!empty($model)) $sql .= ",'".$model."'"; 			
+				//if(!empty($osname)) $sql .= ",'".$osname."'"; 			
+				//if(!empty($totalphysicalmemorymb)) $sql .= ",'".$totalphysicalmemorymb."'"; 			
+				//if(!empty($cpuname)) $sql .= ",'".$cpuname."'"; 			
+				//if(!empty($cpumanufacturer)) $sql .= ",'".$cpumanufacturer."'"; 			
+				//if(!empty($cpuclockspeed)) $sql .= ",'".$cpuclockspeed."'"; 			
+				//if(!empty($cpunumberofcore)) $sql .= ",'".$cpunumberofcore."'"; 			
+				//if(!empty($cpunumberoflogicalprocessor)) $sql .= ",'".$cpunumberoflogicalprocessor."'"; 			
+				//if(!empty($installeddate)) $sql .= ",'".$installeddate."'"; 
 				
 				//if(!empty($role_name)) $sql .= ",'".$role_name."'"; 
 				//if(!empty($role_function)) $sql .= ",'".$role_function."'"; 
@@ -205,7 +205,7 @@
 				
 				//if(!empty($drivea)) $sql .= ",'".$drivea."'"; 			
 				//if(!empty($driveb)) $sql .= ",'".$driveb."'"; 			
-				if(!empty($drivec)) $sql .= ",'".$drivec."'"; 			
+				//if(!empty($drivec)) $sql .= ",'".$drivec."'"; 			
 				//if(!empty($drived)) $sql .= ",'".$drived."'"; 			
 				//if(!empty($drivee)) $sql .= ",'".$drivee."'"; 			
 				//if(!empty($drivef)) $sql .= ",'".$drivef."'"; 			
@@ -230,25 +230,19 @@
 				//if(!empty($drivey)) $sql .= ",'".$drivey."'"; 			
 				//if(!empty($drivez)) $sql .= ",'".$drivez."'"; 	
 				
-				if(!empty($BU)) $sql .= ",'".$BU."'"; 	
-				if(!empty($ENV)) $sql .= ",'".$ENV."'"; 	
-				
-				if(!empty($PRIORITY)) $sql .= ",'".$PRIORITY."'"; 	
-				if(!empty($SEVERITY)) $sql .= ",'".$SEVERITY."'"; 	
-				
+				//if(!empty($BU)) $sql .= ",'".$BU."'"; 	
+				//if(!empty($ENV)) $sql .= ",'".$ENV."'"; 	
+				//
+				//if(!empty($PRIORITY)) $sql .= ",'".$PRIORITY."'"; 	
+				//if(!empty($SEVERITY)) $sql .= ",'".$SEVERITY."'"; 					
 				
 				$sql .= " )";	//close the sql statement
-				//echo $sql;
+				echo $sql;
 				$result = mysqli_query($conn, $sql);
-				//echo $result;
+				echo $result;
 				$msg = "record has been successfully created!";
 		
 		
-		
-		
-		
-		$result = mysqli_query($conn, $sql);
-		//$resultCheck = mysqli_num_rows($result);
 		
 		if($result){
 			header("location: serverdet.php?id=0&query=".$hostname."&domain_suffix=".$domain_suffix);
@@ -256,6 +250,7 @@
 		} else {
 			//header("location: msg.php?val1=Update Failed&val2=Update Success");
 			//exit();
+			echo "ERROR";
 		}			
 		
 		?>

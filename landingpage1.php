@@ -141,14 +141,7 @@ $_SESSION['osname'] = ""; // RESET OS CACHED
             </div>
           </li>
 
-		  <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			MyReports</a>
-			<div class="dropdown-menu" aria-labelledby="dropdown03">
-              <a class="dropdown-item" href="#">#</a>
-            </div>
-          </li>
-
+	
 		  <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			MyLinks</a>

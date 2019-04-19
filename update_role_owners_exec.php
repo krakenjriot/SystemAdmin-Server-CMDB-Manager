@@ -26,6 +26,9 @@
 			$roleowners = $_POST['roleowners'];
 		}
 
+		if(isset($_POST['roledescriptions'])) {
+			$roledescriptions = $_POST['roledescriptions'];
+		}
 		
 						
 		/////////////////////////////////////////////////////////////			
@@ -35,7 +38,13 @@
 		include_once 'func/func.php';			
 		$fqdn = $hostname.".".$domain_suffix;
 		//$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$fqdn'";	
-		$sql = "UPDATE tbl_machine SET role_name='$rolename',role_function='$rolefunction',role_owners='$roleowners' WHERE fqdn='$fqdn'; ";
+		$sql = "UPDATE tbl_machine SET 
+		role_name='$rolename',
+		role_function='$rolefunction',
+		role_descriptions='$roledescriptions',
+		role_owners='$roleowners' 
+		WHERE fqdn='$fqdn'; ";
+		
 		$result = mysqli_query($conn, $sql);
 		//$resultCheck = mysqli_num_rows($result);
 		
@@ -45,6 +54,7 @@
 		} else {
 			//header("location: msg.php?val1=Update Failed&val2=Update Success");
 			//exit();
+			echo "error";
 		}			
 		
 		?>

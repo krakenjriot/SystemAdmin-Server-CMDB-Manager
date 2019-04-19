@@ -458,7 +458,7 @@ if($_SESSION['access_lvl']==0) {
 			echo " / ".ucwords($osname);
 			echo " / $sdip";
 			echo " $netstat";
-			if($pingresult == 0) echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='add-server-manual.php?".$osname."'>( Manually Add? )</a>";
+			if($pingresult == 0) echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='add_server_manual.php?hostname=".$osname."&domain_suffix=".$domain_suffix."'>( Manually Add? )</a>";
 
 			
 			
@@ -505,6 +505,7 @@ if($_SESSION['access_lvl']==0) {
 			echo "&nbsp;&nbsp;<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='update_role_owners.php?hostname=$hostname&domain_suffix=$domain_suffix'>EDIT</a>&nbsp;&nbsp;</span></font>";
 			echo "</br><b>ROLE OWNER(S): </b>". strtoupper($row['role_owners']); 
 			echo "</br><b>BU: </b>". strtoupper($row['BU']); 
+			echo "&nbsp;&nbsp;<b>ENVIRONMENT: </b>". strtoupper($row['ENV']); 
 			echo "&nbsp;&nbsp;<b>PRIORITY: </b>". strtoupper($row['PRIORITY']); 
 			echo "&nbsp;&nbsp;<b>SEVERITY: </b>". strtoupper($row['SEVERITY']); 			
 			echo "&nbsp;&nbsp;<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='update-other-details.php?hostname=$hostname&domain_suffix=$domain_suffix'>EDIT</a>&nbsp;&nbsp;</span></font>";

@@ -38,21 +38,19 @@ $access_lvl  = $_SESSION['access_lvl'];
 		include_once 'libs/dbh.inc.php';
 		include_once 'func/func.php';
 		
-		$fqdn = $hostname.".".$domain_suffix;
-		$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$fqdn'";
-		//$sql = "SELECT * FROM tbl_machine WHERE fqdn ='aproscomms701.nwc.com.sa'";
-		$result = mysqli_query($conn, $sql);
-		$resultCheck = mysqli_num_rows($result);		
-		if($row = mysqli_fetch_assoc($result)){
-			
-			$BU = $row['BU'];
-			$ENV = $row['ENV'];
-			$PRIORITY = $row['PRIORITY'];
-			$SEVERITY = $row['SEVERITY'];			
-			//$firewalled = $row['firewalled'];			
-			//$ilo = $row['ilo'];			
-			
-		}					
+		if(isset($_GET['hostname']) && isset($_GET['domain_suffix'])) $fqdn = $hostname.".".$domain_suffix;
+		
+		//$sql = "SELECT * FROM tbl_machine WHERE fqdn ='$fqdn'";
+		////$sql = "SELECT * FROM tbl_machine WHERE fqdn ='aproscomms701.nwc.com.sa'";
+		//$result = mysqli_query($conn, $sql);
+		//$resultCheck = mysqli_num_rows($result);		
+		//if($row = mysqli_fetch_assoc($result)){
+		//	
+		//	$rolename = $row['role_name'];
+		//	$rolefunction = $row['role_function'];
+		//	$roledescriptions = $row['role_descriptions'];
+		//	$roleowners = $row['role_owners'];			
+		//}					
 		/////////////////////////////////////////////////////////////			
 		/////////////////////////////////////////////////////////////			
 		/////////////////////////////////////////////////////////////	
@@ -93,8 +91,7 @@ $access_lvl  = $_SESSION['access_lvl'];
 
 
 
-<style class="cp-pen-styles"> 
-body {
+<style class="cp-pen-styles">body {
   background-color: #f5f5f5;
 }
 
@@ -133,41 +130,19 @@ body {
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
-		#BU		
-		if(empty($BU)){
+		#role_name		
+		if(empty($rolename)){
 			
-			echo '.focused .form-label#BU {
+			echo '.focused .form-label#rolename {
 				-webkit-transform: translateY(-125%);
 				transform: translateY(-125%);
 				font-size: .75em;
 			}';
 		}
 
-		if(!empty($BU)){
+		if(!empty($rolename)){
 			
-			echo '.form-label#BU {
-				-webkit-transform: translateY(-125%);
-				transform: translateY(-125%);
-				font-size: .75em;
-			}';
-		}
-		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//		
-		#ENV		
-		if(empty($ENV)){
-			
-			echo '.focused .form-label#ENV {
-				-webkit-transform: translateY(-125%);
-				transform: translateY(-125%);
-				font-size: .75em;
-			}';
-		}
-
-		if(!empty($ENV)){
-			
-			echo '.form-label#ENV {
+			echo '.form-label#rolename {
 				-webkit-transform: translateY(-125%);
 				transform: translateY(-125%);
 				font-size: .75em;
@@ -177,19 +152,41 @@ body {
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//	
-		#PRIORITY		
-		if(empty($PRIORITY)){
+		#roledescriptionss		
+		if(empty($roledescriptions)){
 			
-			echo '.focused .form-label#PRIORITY {
+			echo '.focused .form-label#roledescriptions {
 				-webkit-transform: translateY(-125%);
 				transform: translateY(-125%);
 				font-size: .75em;
 			}';
 		}
 
-		if(!empty($PRIORITY)){
+		if(!empty($roledescriptions)){
 			
-			echo '.form-label#PRIORITY {
+			echo '.form-label#roledescriptions {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//			
+		#rolefunction		
+		if(empty($rolefunction)){
+			
+			echo '.focused .form-label#rolefunction {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+
+		if(!empty($rolefunction)){
+			
+			echo '.form-label#rolefunction {
 				-webkit-transform: translateY(-125%);
 				transform: translateY(-125%);
 				font-size: .75em;
@@ -199,19 +196,19 @@ body {
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//	
-		#SEVERITY		
-		if(empty($SEVERITY)){
+		#roleowners		
+		if(empty($roleowners)){
 			
-			echo '.focused .form-label#SEVERITY {
+			echo '.focused .form-label#roleowners {
 				-webkit-transform: translateY(-125%);
 				transform: translateY(-125%);
 				font-size: .75em;
 			}';
 		}
 
-		if(!empty($SEVERITY)){
+		if(!empty($roleowners)){
 			
-			echo '.form-label#SEVERITY {
+			echo '.form-label#roleowners {
 				-webkit-transform: translateY(-125%);
 				transform: translateY(-125%);
 				font-size: .75em;
@@ -220,8 +217,7 @@ body {
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//		
-		
+		//---------------------------------------------------------------//			
 ?>
 
 
@@ -270,7 +266,6 @@ body {
 </style>
 
 	<script type="text/javascript">
-	<!--
 	function newPage(num) {
 	var url=new Array();
 	url[0]="<?php echo 'serverdet.php?id=0&query='.$hostname."&domain_suffix=".$domain_suffix; ?>";
@@ -279,8 +274,6 @@ body {
 	window.location=url[num];``
 	}
 	//
-
-
 	</script>
 </head>
 
@@ -309,30 +302,108 @@ body {
 
 
 <div class="form-wrapper">
-  <form action="update-other-details-exec.php?hostname=<?php echo $hostname; ?>&domain_suffix=<?php echo $domain_suffix; ?>" class="form" method="post">
-  <label><h4><b>Other Details</b> (<?php echo strtoupper($fqdn); ?>)</h4></label>
-    <div class="form-group">
-      <label class="form-label" id="BU" for="first">Business Unit</label>
-      <input id="first" class="form-input" type="text" name="BU" value="<?php echo strtoupper($BU); ?>"/>
-    </div>
-    <div class="form-group">
-      <label class="form-label" id="ENV" for="first">ENVIRONMENT</label>
-      <input id="first" class="form-input" type="text" name="ENV" value="<?php echo strtoupper($ENV); ?>"/>
-    </div>	
-    <div class="form-group">
-      <label class="form-label" for="last" id="PRIORITY">PRIORITY</label>
-      <input id="last" class="form-input" type="text" name="PRIORITY" value="<?php echo strtoupper($PRIORITY); ?>"/>
-    </div>
+  <form action="add_server_manual_exec.php?hostname=<?php echo $hostname; ?>&domain_suffix=<?php echo $domain_suffix; ?>" class="form" method="post">
+  <label><h4><b>ADD NEW SERVER</b> (<?php echo strtoupper($fqdn); ?>)</h4></label>
 
+  
+  <?php //---------------------------------------------------- //?>
+  <div class="form-group">
+      <label class="form-label" id="hostfqdn" for="first">hostfqdn</label>
+      <input id="first" class="form-input" type="text" name="hostfqdn" value="<?php echo strtoupper($hostfqdn); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+  <?php //---------------------------------------------------- //?>
+  <div class="form-group">
+      <label class="form-label" id="rdpipv4" for="first">rdpipv4</label>
+      <input id="first" class="form-input" type="text" name="rdpipv4" value="<?php echo strtoupper($rdpipv4); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+  <div class="form-group">
+      <label class="form-label" id="rdpipv4mac" for="first">rdpipv4mac</label>
+      <input id="first" class="form-input" type="text" name="rdpipv4mac" value="<?php echo strtoupper($rdpipv4mac); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
     <div class="form-group">
-      <label class="form-label" for="last" id="SEVERITY">SEVERITY</label>
-      <input id="last" class="form-input" type="text" name="SEVERITY" value="<?php echo strtoupper($SEVERITY); ?>"/>
-    </div>	
-	<!--
+      <label class="form-label" id="defaultgateway" for="first">defaultgateway</label>
+      <input id="first" class="form-input" type="text" name="defaultgateway" value="<?php echo strtoupper($defaultgateway); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
     <div class="form-group">
-      <label class="form-label-textarea" for="color" >Role Owners</label>
-	  <textarea id="textarea" class="form-input-textarea" name="roleowners" style="height:100px" placeholder="<?php echo $roleowners; ?>" ></textarea>
-    </div>-->
+      <label class="form-label" id="dns1" for="first">dns1</label>
+      <input id="first" class="form-input" type="text" name="dns1" value="<?php echo strtoupper($dns1); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="dns2" for="first">dns2</label>
+      <input id="first" class="form-input" type="text" name="dns2" value="<?php echo strtoupper($dns2); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="subnetmask" for="first">subnetmask</label>
+      <input id="first" class="form-input" type="text" name="subnetmask" value="<?php echo strtoupper($subnetmask); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="machinetype" for="first">machinetype</label>
+      <input id="first" class="form-input" type="text" name="machinetype" value="<?php echo strtoupper($machinetype); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="serialnumber" for="first">serialnumber</label>
+      <input id="first" class="form-input" type="text" name="serialnumber" value="<?php echo strtoupper($serialnumber); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="model" for="first">model</label>
+      <input id="first" class="form-input" type="text" name="model" value="<?php echo strtoupper($model); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="osname" for="first">osname</label>
+      <input id="first" class="form-input" type="text" name="osname" value="<?php echo strtoupper($osname); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="totalphysicalmemorymb" for="first">totalphysicalmemorymb</label>
+      <input id="first" class="form-input" type="text" name="totalphysicalmemorymb" value="<?php echo strtoupper($totalphysicalmemorymb); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="cpuname" for="first">cpuname</label>
+      <input id="first" class="form-input" type="text" name="cpuname" value="<?php echo strtoupper($cpuname); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="cpumanufacturer" for="first">cpumanufacturer</label>
+      <input id="first" class="form-input" type="text" name="cpumanufacturer" value="<?php echo strtoupper($cpumanufacturer); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="cpuclockspeed" for="first">cpuclockspeed</label>
+      <input id="first" class="form-input" type="text" name="cpuclockspeed" value="<?php echo strtoupper($cpuclockspeed); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="cpunumberofcore" for="first">cpunumberofcore</label>
+      <input id="first" class="form-input" type="text" name="cpunumberofcore" value="<?php echo strtoupper($cpunumberofcore); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="cpunumberoflogicalprocessor" for="first">cpunumberoflogicalprocessor</label>
+      <input id="first" class="form-input" type="text" name="cpunumberoflogicalprocessor" value="<?php echo strtoupper($cpunumberoflogicalprocessor); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="installeddate" for="first">installeddate</label>
+      <input id="first" class="form-input" type="text" name="installeddate" value="<?php echo strtoupper($installeddate); ?>"/>
+  </div>
+  <?php //---------------------------------------------------- //?>
+    <div class="form-group">
+      <label class="form-label" id="drivec" for="first">drivec</label>
+      <input id="first" class="form-input" type="text" name="drivec" value="<?php echo strtoupper($drivec); ?>"/>
+  </div>
+ 
+	
 	
 	
     <div class="form-group">

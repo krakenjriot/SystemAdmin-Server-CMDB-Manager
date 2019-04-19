@@ -235,7 +235,6 @@ if(isset($_GET['filename'])){
 				if(!empty($BU)) $sql .= ",BU"; 
 				if(!empty($ENV)) $sql .= ",ENV"; 	
 
-				
 				if(!empty($PRIORITY)) $sql .= ",PRIORITY"; 				
 				if(!empty($SEVERITY)) $sql .= ",SEVERITY"; 				
 				

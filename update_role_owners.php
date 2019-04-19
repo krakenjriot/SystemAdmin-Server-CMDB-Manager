@@ -47,6 +47,7 @@ $access_lvl  = $_SESSION['access_lvl'];
 			
 			$rolename = $row['role_name'];
 			$rolefunction = $row['role_function'];
+			$roledescriptions = $row['role_descriptions'];
 			$roleowners = $row['role_owners'];			
 		}					
 		/////////////////////////////////////////////////////////////			
@@ -149,7 +150,29 @@ $access_lvl  = $_SESSION['access_lvl'];
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
 		//---------------------------------------------------------------//
-		//---------------------------------------------------------------//		
+		//---------------------------------------------------------------//	
+		#roledescriptionss		
+		if(empty($roledescriptions)){
+			
+			echo '.focused .form-label#roledescriptions {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+
+		if(!empty($roledescriptions)){
+			
+			echo '.form-label#roledescriptions {
+				-webkit-transform: translateY(-125%);
+				transform: translateY(-125%);
+				font-size: .75em;
+			}';
+		}
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//
+		//---------------------------------------------------------------//			
 		#rolefunction		
 		if(empty($rolefunction)){
 			
@@ -242,7 +265,6 @@ $access_lvl  = $_SESSION['access_lvl'];
 </style>
 
 	<script type="text/javascript">
-	<!--
 	function newPage(num) {
 	var url=new Array();
 	url[0]="<?php echo 'serverdet.php?id=0&query='.$hostname."&domain_suffix=".$domain_suffix; ?>";
@@ -251,8 +273,6 @@ $access_lvl  = $_SESSION['access_lvl'];
 	window.location=url[num];``
 	}
 	//
-
-
 	</script>
 </head>
 
@@ -285,13 +305,17 @@ $access_lvl  = $_SESSION['access_lvl'];
   <label><h4><b>Update Roles</b> (<?php echo strtoupper($fqdn); ?>)</h4></label>
     <div class="form-group">
       <label class="form-label" id="rolename" for="first">Role Name</label>
-      <input id="first" class="form-input" type="text" name="rolename" value="<?php echo $rolename; ?>"/>
+      <input id="first" class="form-input" type="text" name="rolename" value="<?php echo strtoupper($rolename); ?>"/>
     </div>
     <div class="form-group">
       <label class="form-label" for="last" id="rolefunction">Role Function</label>
-      <input id="last" class="form-input" type="text" name="rolefunction" value="<?php echo $rolefunction; ?>"/>
+      <input id="last" class="form-input" type="text" name="rolefunction" value="<?php echo strtoupper($rolefunction); ?>"/>
     </div>
-
+  
+	<div class="form-group">
+      <label class="form-label" for="last" id="roledescriptions">Role Descriptions</label>
+      <input id="last" class="form-input" type="text" name="roledescriptions" value="<?php echo strtoupper($roledescriptions); ?>"/>
+    </div>
     <div class="form-group">
       <label class="form-label" for="last" id="roleowners">Role Owners</label>
       <input id="last" class="form-input" type="text" name="roleowners" value="<?php echo $roleowners; ?>"/>
@@ -299,7 +323,7 @@ $access_lvl  = $_SESSION['access_lvl'];
 	<!--
     <div class="form-group">
       <label class="form-label-textarea" for="color" >Role Owners</label>
-	  <textarea id="textarea" class="form-input-textarea" name="roleowners" style="height:100px" placeholder="<?php echo $roleowners; ?>" ></textarea>
+	  <textarea id="textarea" class="form-input-textarea" name="roleowners" style="height:100px" placeholder="<?php echo strtoupper($roleowners); ?>" ></textarea>
     </div>-->
 	
 	

@@ -441,11 +441,11 @@ if($_SESSION['access_lvl']==0) {
 			if($server==0){//						
 				//echo "</br>(You are authorized to view this node!)";
 				//allowed 				
-				$server_type = "Workstation";				
+				$server_type = "CLIENT";				
 			}	
 			if($server==1){
 			//					
-				$server_type = "Server";								
+				$server_type = "SERVER";								
 			}				///////////////////////////////////////////////////////	
 	///////////////////////////////////////////////////////	
 	///////////////////////////////////////////////////////	
@@ -458,6 +458,7 @@ if($_SESSION['access_lvl']==0) {
 			echo " / ".ucwords($osname);
 			echo " / $sdip";
 			echo " $netstat";
+			if($pingresult == 0) echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='add-server-manual.php?".$osname."'>( Manually Add? )</a>";
 
 			
 			
@@ -499,10 +500,15 @@ if($_SESSION['access_lvl']==0) {
 		$resultCheck = mysqli_num_rows($result);		
 		if($row = mysqli_fetch_assoc($result)){
 			
-			echo "</br><b>Role Name: </b>". $row['role_name'];
-			echo "<b> / Functions: </b>". $row['role_function']; 
+			echo "</br><b>ROLE NAME: </b>". strtoupper($row['role_name']);
+			echo "<b> / FUNCTION: </b>". strtoupper($row['role_function']); 
 			echo "&nbsp;&nbsp;<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='update_role_owners.php?hostname=$hostname&domain_suffix=$domain_suffix'>EDIT</a>&nbsp;&nbsp;</span></font>";
-			echo "</br><b>Role Owners: </b>". $row['role_owners']; 
+			echo "</br><b>ROLE OWNER(S): </b>". strtoupper($row['role_owners']); 
+			echo "</br><b>BU: </b>". strtoupper($row['BU']); 
+			echo "&nbsp;&nbsp;<b>PRIORITY: </b>". strtoupper($row['PRIORITY']); 
+			echo "&nbsp;&nbsp;<b>SEVERITY: </b>". strtoupper($row['SEVERITY']); 			
+			echo "&nbsp;&nbsp;<font color='RED' ><span style='background-color: #FFFF00'>&nbsp;&nbsp;<a href='update-other-details.php?hostname=$hostname&domain_suffix=$domain_suffix'>EDIT</a>&nbsp;&nbsp;</span></font>";
+			 
 			echo "</br></br>";
 
 		} else {

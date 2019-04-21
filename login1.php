@@ -1,78 +1,118 @@
-
-<!doctype html>
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://getbootstrap.com/docs/4.0/examples/sign-in/ -->
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
 
     <title>Signin Template for Bootstrap</title>
 
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap4/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./signin/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="bootstrap4/dist/css/signin.css" rel="stylesheet">
+    <link href="./signin/signin.css" rel="stylesheet">
+	
+<style>
 
-
+</style>	
+	
+	
+	
+	
 	<script type="text/javascript">
-	<!--
-	function newPage(num) {
-	var url=new Array();
-	url[0]="register2.php";
-	url[1]="forgotpass.php";
-	url[2]="resetpass.php";
-	window.location=url[num];``
-	}
-	//
-
-
+		function newPage(num) {
+			var url=new Array();
+			url[0]="register2.php";
+			url[1]="forgotpass.php";
+			url[2]="resetpass.php";
+			window.location=url[num];``
+		}//
+		
+		
+		
 	</script>
-
-
-
-	</head>
-
-
-
-
-	<!------------------------------------------------------------------------------------------------------------------------------->
-
-
-
+	
+	
   </head>
+<body>
+<div class="form-wrapper">
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<!-- flex container -->
+<div class="d-flex h-100">
+  <!-- login box -->
+  <div class="m-auto">
+  
+    <form class="form-signin" action="incl/login.inc1.php" method="post">
 
-  <body class="text-center" >
-    <form class="form-signin" action="incl/login.inc1.php" method="post" >
+		<!------------------------honeypot---------------->
+			<input name="honeypot1" type="text" hidden/>
+		<!------------------------------------------------>
+	
+	  <div class="text-center">
+      <img class="rounded float-right" src="0.png" alt="" width="100" height="100">
+	  </div>
+      <h1 class="h3 mb-3 font-weight-normal">IT Admin</h1><p>Authorized Personnel Only</p>	  
 
-	<!------------------------honeypot---------------->
-        <input name="honeypot1" type="text" hidden/>
-    <!------------------------------------------------>
+<!--      
+	  <label for="inputEmail" class="sr-only">Email address</label>	  
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" name="email">&nbsp;
+-->
+  <div class="form-group">
+    <!--<label for="exampleInputEmail1">Email address</label>-->
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+    <small id="emailHelp" class="form-text text-muted">Email</small>
+  </div>
+  <div class="form-group">
+    <!--<label for="exampleInputPassword1">Password</label>-->
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+	<small id="emailPassword" class="form-text text-muted">Password</small>
+  </div>
+  
+  <!--
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>-->
+  
 
-      <img class="mb-4" src="bootstrap/svg/bootstrap-solid.svg" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+	  
+	  <!--
+      <label for="inputPassword" class="sr-only">Password</label>	  
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" name="password">
+	  -->
+	  
+	  
+	  
+	  
+	  
+	  
       <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" name="login" >Sign in</button>
-	  <button class="btn btn-lg btn-primary btn-block" type="button" name="register" onclick="newPage(0)">Register</button>
-	  <button class="btn btn-lg btn-primary btn-block" type="button" name="forgotpass" onclick="newPage(1)">Forgot Password</button>
+	  
+	  <button class="btn btn-outline-success btn-block" type="submit" name="login" >Sign in</button>
+	  <a href="register2.php" class="btn btn-outline-success btn-block" role="button">Register</a>
+	  <a href="resetpass.php" class="btn btn-outline-success btn-block" role="button">Reset Password</a>&nbsp
 
-
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-
+      <p class="mt-5 mb-3 text-muted" align="center">--- Wipro Manage Services ---<br>©2019</p>
 	  <!------------------------honeypot---------------->
-        <input name="honeypot2" type="text" hidden/>
-      <!------------------------------------------------>
-
+			<input name="honeypot2" type="text" hidden/>
+   	  <!------------------------------------------------>
     </form>
-  </body>
-</html>
+	</div>
+	</div>	
+ </div> 
+ 
+
+</body></html>

@@ -192,7 +192,7 @@ if($_SESSION['access_lvl']==0) {
 	//$pingresult = shell_exec('C:\xampp\htdocs\hwinv\batchfile\pingme.bat '.$query.'');	
 
 	//check if machine is pingable!
-	$pingresult = shell_exec('C:\xampp\htdocs\hwinv\batchfile\pingme.bat '.$thostname.'.'.$domainname);	
+	$pingresult = shell_exec('C:\xampp\htdocs\hwinv\batchfile\pingme.bat '.$thostname);	
 	$_SESSION['pingresult'] = $pingresult;
 	$access_lvl  = $_SESSION['access_lvl'];
 	//$ipaddress = $_SESSION['ipaddress'];

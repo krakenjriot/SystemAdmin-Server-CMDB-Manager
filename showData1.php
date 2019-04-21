@@ -27,61 +27,17 @@ $u_email  = $_SESSION['u_email'];
 /*******************************************/
 ?>
 
+	<?php
+		$access_lvl  = $_SESSION['access_lvl'];
+		if($access_lvl == 1){
+			$tag = "Operator";
+		} 
 
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
-
-    <title>Kraken Ball</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="bootstrap/css/starter-template.css" rel="stylesheet">
-
-
-  </head>
-
-  <body>
-
-
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Testastika Console v1.0</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-	  
-	       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          
-		  <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">#<span class="sr-only">(current)</span></a>
-          </li>
-
-        </ul>
+		if($access_lvl > 1){
+			$tag = "Admin";
+		} 
 		
-
-      </div>
-	  
-
-
-    </nav>
-
-    <main role="main" class="container">
-
-				
-
-			
-
-
+	?>
 			<?php 
 			//**********************************************************************************************************************************
 			//START - CONNECT DB AND PREPARE QUERY
@@ -134,8 +90,55 @@ $u_email  = $_SESSION['u_email'];
 				
 				//echo "<a href='serverdet.php?id=2&query={$fqdn}&'><button class='btn btn-primary'><span class='glyphicon glyphicon-home'>&nbspHome</span></button></a>";
 				
+	?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Kraken Ball</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="bootstrap/css/starter-template.css" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#"><?php echo strtoupper($fqdn); ?></a>	
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+	<div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+	  <ul class="navbar-nav">
+		<li class="nav-item">		  
+		  <a href="javascript:window.close();" class="btn btn-outline-success btn-danger" role="button">Close</a></br>
+		</li>
+	  </ul>
+	</div>	  
+    </nav>
+
+    <main role="main" class="container">
+
+				
+
+			
+
+
+
 	
-				echo "<h4>&nbsp&nbsp; ".strtoupper($fqdn)." (<a href='javascript:window.close();'>Close</a>)</h4>";
+	<?php
+				echo "<h4>&nbsp&nbsp; Machine Details</h4>";
 				
 				
 

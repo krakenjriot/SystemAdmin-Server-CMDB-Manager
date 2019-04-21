@@ -64,8 +64,8 @@ $access_lvl  = $_SESSION['access_lvl'];
 <head>
 
     <meta charset="utf-8">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
@@ -331,10 +331,11 @@ $access_lvl  = $_SESSION['access_lvl'];
     </div>-->
 	
 	
-    <div class="form-group">
-      <!--<label class="form-label" for="color">What is your favorite color?</label>-->
-      <input type="submit" class="btn btn-success" value="Submit">
-	  <button type="button" class="btn btn-danger" value="Cancel" name="cancel" onclick="newPage(0)">Cancel</button>
+    <div class="form-group">  	  
+	  <button class="btn btn-outline-success btn-block" type="submit" value="Submit">Update</button>
+	  <a href="<?php echo "serverdet.php?id=0&thostname=".$thostname."&domainname=".$domainname."&osname=".$osname; ?>" class="btn btn-outline-success btn-block" role="button">Cancel</a>&nbsp
+
+      <p class="mt-5 mb-3 text-muted" align="center">--- Wipro Manage Services ---<br>©2019</p>	 
     </div>	
   </form>
 </div>

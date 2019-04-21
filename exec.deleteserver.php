@@ -46,6 +46,7 @@ if(isset($_GET['fqdn'])) {
 <html lang="en">
   <head>
     <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -65,12 +66,18 @@ if(isset($_GET['fqdn'])) {
 
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="landingpage1.php">Testastika Console v1.0</a>
+      <a class="navbar-brand" href="#"><?php echo strtoupper($fqdn); ?></a>	
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-
+	<div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+	  <ul class="navbar-nav">
+		<li class="nav-item">		  
+		  <a href="javascript:window.close();" class="btn btn-outline-success btn-danger" role="button">Close</a></br>
+		  
+		</li>
+	  </ul>
+	</div>	  
     </nav>
 
     <main role="main" class="container">
@@ -111,7 +118,7 @@ if(isset($_GET['fqdn'])) {
 
 			</br></br></br>
 
-			<a href="landingpage1.php">Go Back</a>
+			
 
     </main><!-- /.container -->
 

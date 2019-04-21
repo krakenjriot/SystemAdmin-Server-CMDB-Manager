@@ -53,15 +53,15 @@ $_SESSION['osname'] = ""; // RESET OS CACHED
 <HTML lang="en">
 
 <HEAD>
-    <META content="IE=11.0000" http-equiv="X-UA-Compatible">
-
+    
     <META charset="utf-8">
+	<META content="IE=11.0000" http-equiv="X-UA-Compatible">
     <META name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <META name="description" content="">
     <META name="author" content="">
     <LINK href="../../../../favicon.ico" rel="icon">
-    <TITLE>Testastika v1.0</TITLE>
+    <TITLE>Home</TITLE>
     <LINK href="https://getbootstrap.com/docs/4.0/examples/starter-template/" rel="canonical">
     <!-- Bootstrap core CSS -->
     <LINK href="index_files/bootstrap.min.css" rel="stylesheet">
@@ -75,9 +75,7 @@ $_SESSION['osname'] = ""; // RESET OS CACHED
 	
 	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 	
-	
 
-	
 	
 	
 </HEAD>
@@ -181,11 +179,15 @@ $_SESSION['osname'] = ""; // RESET OS CACHED
 				
 				
 				
-                <INPUT class="form-control mr-sm-2" aria-label="Search" type="text" placeholder="Search" id="name" name="name" type="text" onselect="myFunction()" >
-                <BUTTON class="btn btn-outline-success my-2 my-sm-0" type="reset">Reset</BUTTON>
+				
+                <INPUT class="form-control mr-sm-2" aria-label="Search" type="text" placeholder="Search" id="name" name="name" type="text" onselect="myFunction()">
+                <INPUT  class="btn btn-outline-success my-2 my-sm-0"  type="submit" value="Clear" >Clear</input>
+				
             </FORM>		
         </DIV>
     </NAV>	
+	
+
 	
 	<!--	<DIV class="starter-template">
             <H1>Welcome to Testastika</H1>
@@ -248,6 +250,7 @@ $_SESSION['osname'] = ""; // RESET OS CACHED
 
 		</section>
 	<!---------------------------------------------------------------------------------------------->	
+	<p class="mt-5 mb-3 text-muted" align="center">--- Wipro Manage Services ---<br>©2019</p>
     </main>
     <!-- /.container -->
     <!-- Bootstrap core JavaScript
@@ -278,15 +281,7 @@ $_SESSION['osname'] = ""; // RESET OS CACHED
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-	<script type="text/javascript">
-		<!-- 
-		function newPage(num) {
-		var url=new Array();
-		url[0]="logout.php";
-		url[1]="forgotpass.php";	
-		window.location=url[num];``
-		}
-	</script>
+
 
 </BODY>
 

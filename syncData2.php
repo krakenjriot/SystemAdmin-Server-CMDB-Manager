@@ -406,6 +406,7 @@ if(isset($_GET['filename'])){
 <html lang="en">
   <head>
     <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -430,41 +431,23 @@ if(isset($_GET['filename'])){
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="landingpage1.php">Testastika Console v1.0</a>
-	  
-	  
-	  <!--
+      <a class="navbar-brand" href="#"><?php echo strtoupper($fqdn); ?></a>	
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Script <span class="sr-only">(current)</span></a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-			  <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-		  <li class="nav-item">
-            <a class="nav-link" href="logout.php">Logout</a>
-          </li>
-        </ul>		
-      </div>
-	  -->
+		  
+	  
+	<div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+	  <ul class="navbar-nav">
+		<li class="nav-item">		  
+		  <a href="javascript:window.close();" class="btn btn-outline-success btn-danger" role="button">Close</a></br>
+		</li>
+	  </ul>
+	</div>	  
     </nav>
 
-  </br></br>
+ 
     <main role="main" class="container">
 
 
@@ -481,11 +464,7 @@ if(isset($_GET['filename'])){
 					<?php 
 						echo $msg;
 					?>
-			
-			
-			
-				
-
+		
 				</section>
 				<! --/wrapper -->
 			</section><!-- /MAIN CONTENT -->

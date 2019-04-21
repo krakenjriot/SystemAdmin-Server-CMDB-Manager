@@ -67,37 +67,16 @@ if(isset($_GET['val1'])) {
   <body>
 
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Testastika Console v1.0</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-
-    </nav>
-
-    <main role="main" class="container">
-
 			
 			
-			<?php 		
-				//echo "<p> are you sure you want to delete this server <b><em>$fqdn</em></b> from database? </p>";
-				//echo "<a href='exec.deleteserver.php?id=$id&fqdn=$fqdn'>Yes</a> / ";			
-				//echo "<a href=landingpage1.php?id=$id&fqdn=$fqdn'>No</a>";	
-			?>
 
-			
-			
-				<script type="text/javascript">
-				<!-- 
-				function newPage(num) {
-				var url=new Array();				
-				url[0]="landingpage1.php";	
-				window.location=url[num];``
-				}
-				// 
-				</script>	
 					
+					<div class="form-wrapper">
+					 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+					<!-- flex container -->
+					<div class="d-flex h-100">
+					  <!-- login box -->
+					  <div class="m-auto">
 				<form class="form-signin">
 					
 					<!------------------------honeypot---------------->
@@ -112,20 +91,18 @@ if(isset($_GET['val1'])) {
 					  
 					  
 					  
-					  <button class="btn btn-lg btn-primary btn-block" type="button" name="register" onclick="newPage(0) ">Home</button>
-					  
-					  
-					  
-					  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+	  <a href="login1.php" class="btn btn-outline-success btn-block" role="button">Login Now</a>&nbsp
+
+      <p class="mt-5 mb-3 text-muted" align="center">--- Wipro Manage Services ---<br>©2019</p>
 					  
 					  <!------------------------honeypot---------------->
 						<input name="honeypot2" type="text" hidden/>
 					  <!------------------------------------------------>
 					  
 				</form>	
+				</div></div></div>
 				
-
-    </main><!-- /.container -->
+   
 
 	<!---------------------------------------------------------------------------------------------->
 	<!-- place JS scripts at end of page for faster load times -->

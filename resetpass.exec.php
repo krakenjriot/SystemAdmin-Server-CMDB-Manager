@@ -22,8 +22,9 @@ $u_email  = $_SESSION['u_email'];
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<META charset="utf-8">
+	<META content="IE=11.0000" http-equiv="X-UA-Compatible">
+    <META name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
@@ -72,52 +73,7 @@ $u_email  = $_SESSION['u_email'];
   <body>
 
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Testastika Console v1.0</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-
-
-
-
-
-
-
-	       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-
-		  <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">#<span class="sr-only">(current)</span></a>
-          </li>
-
-        </ul>
-
-
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </nav>
-
-			<main role="main" class="container">
 
 
 			<?php
@@ -130,7 +86,7 @@ $u_email  = $_SESSION['u_email'];
 
 
 
-			if(isset($_POST['submit'])) {
+			if(isset($_POST['resetpass'])) {
 			//##############################################################################################//
 			//##############################################################################################//
 			//check if email is existing
@@ -197,16 +153,13 @@ $u_email  = $_SESSION['u_email'];
 			?>
 
 
-				<script type="text/javascript">
-				<!--
-				function newPage(num) {
-				var url=new Array();
-				url[0]="landingpage1.php";
-				window.location=url[num];``
-				}
-				//
-				</script>
 
+<div class="form-wrapper">
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<!-- flex container -->
+<div class="d-flex h-100">
+  <!-- login box -->
+  <div class="m-auto">
 				<form class="form-signin">
 
 					<!------------------------honeypot---------------->
@@ -214,31 +167,24 @@ $u_email  = $_SESSION['u_email'];
 					<!------------------------------------------------>
 
 					  <img class="mb-4" src="bootstrap/svg/bootstrap-solid.svg" alt="" width="72" height="72">
-					  <h1 class="h3 mb-3 font-weight-normal">Reset Process</h1>
+					  <h1 class="h3 mb-3 font-weight-normal">Reset Password Success</h1>
 					  <p><em>Your reset link has been successfully sent to your email!</em></p>
 
-					  <button class="btn btn-lg btn-primary btn-block" type="button" name="nothing" onclick="newPage(0) ">Home</button>
+				
+	  <a href="login1.php" class="btn btn-outline-success btn-block" role="button">Login Now</a>&nbsp
+
+      <p class="mt-5 mb-3 text-muted" align="center">--- Wipro Manage Services ---<br>©2019</p>
 
 
 
-					  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
 
 					  <!------------------------honeypot---------------->
 						<input name="honeypot2" type="text" hidden/>
 					  <!------------------------------------------------>
 
 				</form>
+				</div></div></div>
 
-
-
-
-
-
-
-
-
-
-			</main><!-- /.container -->
 
 						<!---------------------------------------------------------------------------------------------->
 						<!-- place JS scripts at end of page for faster load times -->

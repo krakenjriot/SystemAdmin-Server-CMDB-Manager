@@ -34,6 +34,7 @@ $u_email  = $_SESSION['u_email'];
 <html lang="en">
   <head>
     <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -55,26 +56,6 @@ $u_email  = $_SESSION['u_email'];
     <link href="bootstrap4/dist/css/signin.css" rel="stylesheet">
 	
 
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -83,52 +64,7 @@ $u_email  = $_SESSION['u_email'];
   <body>
 
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Testastika Console v1.0</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          
-		  <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">#<span class="sr-only">(current)</span></a>
-          </li>
-
-        </ul>
-		
-
-      </div>
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-
-    </nav>
-
-    <main role="main" class="container">
 
 				
 
@@ -177,20 +113,10 @@ $u_email  = $_SESSION['u_email'];
 			//**********************************************************************************************************************************
 			// FORMAT $RESULT >>
 			//**********************************************************************************************************************************
-				//echo "<br>";
-				//echo "&nbsp&nbsp&nbsp";
-				
-				//echo "<a href='serverdet.php?id=2&query={$fqdn}&'><button class='btn btn-primary'><span class='glyphicon glyphicon-home'>&nbspHome</span></button></a>";
-				
+		
 	
-				echo "<h4>&nbsp&nbsp{$fqdn}</h4>";
 				
-				
-
-				//echo "<thead><tr><th><h4>&nbsp&nbsp&nbspSERVER DETAILS <a href='#'>(update)</a></h4></th></tr></thead>";
-				
-				///echo "<table>";
-				//echo "<tbody>";
+			
 				
 				$i=0;
 				$num = count($results);
@@ -254,73 +180,73 @@ $u_email  = $_SESSION['u_email'];
 				
 				
 				file_put_contents($filenameDirPath,$csv_file);
-				//else echo "<td class='tg-ugh9'>&nbsp&nbsp&nbsp&nbspNO RECORDS FOUND</td>";
-
-				//echo "</tbody>";
-				//echo "</table>";
-			//**********************************************************************************************************************************
-			//END - CONNECT DB AND PREPARE QUERY
-			//**********************************************************************************************************************************	
-			
-			//echo $csv_file;
-			//echo "</br>";
-			//echo $filenameDirPath;
-			//echo "</br>";
-				
-				
+		
 				
 				
 			?>
 
-
+  	
 			
-				<script type="text/javascript">
-				<!--->
-				function newPage(num) {
-				var url=new Array();
-				url[0]='landingpage1.php?<?php echo "fqdn=$fqdn"; ?>';	
-				url[1]="landingpage1.php?<?php echo "fqdn=$fqdn"; ?>";	
-				window.location=url[num];``
-				}
-				// 		
-
-				</script>	
+				
+				
+<div class="form-wrapper">
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<!-- flex container -->
+<div class="d-flex h-100">
+  <!-- login box -->
+  <div class="m-auto">
 					<form class="form-signin" action="sendNow.exec.php?<?php echo "filename=$filename&fqdn=$fqdn"; ?>" method="post" >
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					
-					</br></br>
-					-->CSV Raw<--<textarea name="textareaname" cols="40" rows="10">  
-					<?php echo $csv_file; ?>
-					</textarea>
-					
-					<a href="<?php echo $filenameDirPath; ?>" >Download CVS</a></br></br>
+
 					
 					<!------------------------honeypot---------------->
 						<input name="honeypot1" type="text" hidden/>
 					<!------------------------------------------------>
 					
-					  <!--<img class="mb-4" src="bootstrap/svg/bootstrap-solid.svg" alt="" width="72" height="72">-->
-					  <!--<h1 class="h3 mb-3 font-weight-normal">Send CSV File To: (Email)</h1>-->
-					  <label for="inputEmail" class="sr-only">Email address</label>					  
-					  <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>					 					  
-					  </br>
-					  <button class="btn btn-lg btn-primary btn-block" type="submit" name="login" >Send Now</button>
-					  </br>
-					  <a href="javascript:window.close();"><button class="btn btn-lg btn-primary btn-block" type="button" name="register" >Close</button></a>
+					<div class="text-center">
+					  <img class="rounded float-right" src="0.png" alt="" width="100" height="100">
+					  </div>
+					  <h1 class="h3 mb-3 font-weight-normal">IT Admin</h1><p>Authorized Personnel Only</p>	
+
+	
+					<!--
+					<div class="form-group">
+					<textarea class="form-control" name="textareaname" cols="40" rows="10">  
+					<?php echo $csv_file; ?>
+					</textarea>
+					</div>-->
+					
+					<a href="<?php echo $filenameDirPath; ?>" >Download CVS</a></br></br>	
 					  
 					  
+  <div class="form-group">
+    <!--<label for="exampleInputEmail1">Email address</label>-->
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+    <small id="emailHelp" class="form-text text-muted">Email</small>
+  </div>
 					  
-					  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+					  <button class="btn btn-outline-success btn-block" type="submit" name="submit" >Send Now</button>
+					  <a href="javascript:window.close()" class="btn btn-outline-success btn-block" role="button">Close</a>
+					  
+
+					  <p class="mt-5 mb-3 text-muted" align="center">--- Wipro Manage Services ---<br>©2019</p>
 					  
 					  <!------------------------honeypot---------------->
 						<input name="honeypot2" type="text" hidden/>
 					  <!------------------------------------------------>
 					  
 					</form>
+						</div>
+	</div>	
+ </div> 
+					
+					
 
 
 
-
-					    </main><!-- /.container -->
 
 						<!---------------------------------------------------------------------------------------------->
 						<!-- place JS scripts at end of page for faster load times -->
@@ -341,6 +267,7 @@ $u_email  = $_SESSION['u_email'];
 					    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 					    <script src="bootstrap/js/popper.min.js"></script>
 					    <script src="bootstrap/js/bootstrap.min.js"></script>
+						
 					  </body>
 					</html>
 

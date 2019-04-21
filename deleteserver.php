@@ -57,6 +57,7 @@ if(isset($_GET['id'])) {
 <html lang="en">
   <head>
     <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -75,16 +76,7 @@ if(isset($_GET['id'])) {
     <!-- Custom styles for this template -->
     <link href="bootstrap4/dist/css/signin.css" rel="stylesheet">
 	
-				<script type="text/javascript">
-				<!-- 
-				function newPage(num) {
-				var url=new Array();
-				url[0]='exec.deleteserver.php?<?php echo "fqdn=$fqdn"; ?>';	
-				url[1]="<?php echo 'serverdet.php?id=0&thostname='.$thostname.'&domainname='.$domainname."&osname=".$osname; ?>";
-				window.location=url[num];``
-				}
-				// 
-				</script>	
+		
 	
 
 
@@ -93,27 +85,19 @@ if(isset($_GET['id'])) {
   <body>
 
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Testastika Console v1.0</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-
-    </nav>
-
-    <main role="main" class="container">
 
 			
 			
-			<?php 		
-				//echo "<p> are you sure you want to delete this server <b><em>$fqdn</em></b> from database? </p>";
-				//echo "<a href='exec.deleteserver.php?id=$id&fqdn=$fqdn'>Yes</a> / ";			
-				//echo "<a href=landingpage1.php?id=$id&fqdn=$fqdn'>No</a>";	
-			?>
+	
 
 			
-			
+			<div class="form-wrapper">
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<!-- flex container -->
+<div class="d-flex h-100">
+  <!-- login box -->
+  <div class="m-auto">
 
 				<form class="form-signin" action="exec.deleteserver.php?<?php echo "id=$id&fqdn=$fqdn"; ?>" method="POST" >
 					
@@ -125,14 +109,10 @@ if(isset($_GET['id'])) {
 					  <h1 class="h3 mb-3 font-weight-normal">Delete Record</h1>
 					  <p> are you sure you want to delete this server <b><em><?php echo $fqdn; ?></em></b> from database? </p>
 					  
-					  <button class="btn btn-lg btn-primary btn-block" type="submit" name="deletenow" >Delete Now</button>
-					   </br>
-					  <button type="button" class="btn btn-danger" value="Cancel" name="cancel" onclick="newPage(1)">Cancel</button>
-					  
-					  
-					  
-					  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-					  
+	  <button class="btn btn-outline-success btn-block" type="submit" name="deletenow" >Delete Now</button>
+	  <a href="javascript:window.close()" class="btn btn-outline-success btn-block" role="button">Cancel</a>
+
+      <p class="mt-5 mb-3 text-muted" align="center">--- Wipro Manage Services ---<br>©2019</p>
 					  <!------------------------honeypot---------------->
 						<input name="honeypot2" type="text" hidden/>
 					  <!------------------------------------------------>
@@ -142,7 +122,6 @@ if(isset($_GET['id'])) {
 
 									
 
-    </main><!-- /.container -->
 
 	<!---------------------------------------------------------------------------------------------->
 	<!-- place JS scripts at end of page for faster load times -->

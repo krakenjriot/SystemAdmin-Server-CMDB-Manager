@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="https://getbootstrap.com/favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Login</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
 
@@ -20,25 +20,23 @@
     <!-- Custom styles for this template -->
     <link href="./signin/signin.css" rel="stylesheet">
 	
-<style>
+	
+	
+<style class="cp-pen-styles"> 
 
-</style>	
-	
-	
-	
-	
-	<script type="text/javascript">
-		function newPage(num) {
-			var url=new Array();
-			url[0]="register2.php";
-			url[1]="forgotpass.php";
-			url[2]="resetpass.php";
-			window.location=url[num];``
-		}//
-		
-		
-		
-	</script>
+/*
+.form-wrapper {
+  max-width: 30%;
+  min-width: 300px;
+  padding: 50px 30px 50px 30px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+}
+*/
+
+</style>
 	
 	
   </head>
@@ -60,7 +58,9 @@
       <img class="rounded float-right" src="0.png" alt="" width="100" height="100">
 	  </div>
       <h1 class="h3 mb-3 font-weight-normal">IT Admin</h1><p>Authorized Personnel Only</p>	  
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <!--      
 	  <label for="inputEmail" class="sr-only">Email address</label>	  
       <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" name="email">&nbsp;

@@ -440,18 +440,24 @@ if($_SESSION['access_lvl']==0) {
 	?>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Testastika Console v1.0 (<?php echo $tag; ?>)</a>
+      <a class="navbar-brand" href="#"><?php echo strtoupper($fqdn); ?></a>	
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-
+	<div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+	  <ul class="navbar-nav">
+		<li class="nav-item">		  
+		  <a href="javascript:window.close();" class="btn btn-outline-success btn-danger" role="button">Close</a></br>
+		</li>
+	  </ul>
+	</div>	  
     </nav>
 
     <main role="main" class="container">
 			
 
-			<a href="javascript:window.close();">(Close Window)</a></br>
+			
+			
 			
 			
 			<?php

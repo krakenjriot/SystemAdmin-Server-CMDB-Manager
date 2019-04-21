@@ -29,13 +29,14 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<META charset="utf-8">
+	<META content="IE=11.0000" http-equiv="X-UA-Compatible">
+    <META name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
 
-    <title>Signin Template for Bootstrap</title>
+    <title>Register</title>
 
     <!-- Bootstrap core CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -58,18 +59,25 @@
 	
   </head>
 
-  <body class="text-center" >
+  <body>
+  <div class="form-wrapper">
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<!-- flex container -->
+<div class="d-flex h-100">
+  <!-- login box -->
+  <div class="m-auto">
     <form class="form-signin" action="incl/register.inc1.php" method="post" autocomplete="nope">
 	
 	<!------------------------honeypot---------------->
         <input name="honeypot1" type="text" hidden/>
     <!------------------------------------------------>
 	
-      <img class="mb-4" src="bootstrap/svg/bootstrap-solid.svg" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       
 	  
-	  
+<!--	  
 	  <label class="sr-only">First Name</label>
       <input type="input" name="firstname"  id="inputFirstName" class="form-control" placeholder="First Name" required autofocus>
 	  
@@ -93,8 +101,48 @@
       
 	  <label  for="inputPassword" class="sr-only">Repeat Password</label>
       <input type="password" name="password2"  id="inputPassword" class="form-control" placeholder="Repeat Password" required>
+-->	  
+
 	  
-	  
+	  <!---------------------------------------------------------------->
+	  <div class="text-center">
+      <img class="rounded float-right" src="0.png" alt="" width="100" height="100">
+	  </div>
+      <h1 class="h3 mb-3 font-weight-normal">Register</h1><p>Authorized Personnel Only</p>	  
+
+<!--      
+	  <label for="inputEmail" class="sr-only">Email address</label>	  
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="" name="email">&nbsp;
+-->
+  <div class="form-group">
+    <!--<label for="exampleInputEmail1">Email address</label>-->
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" name="email" required autofocus>
+    <small id="emailHelp" class="form-text text-muted">Email</small>
+  </div>
+  <div class="form-group">
+    <!--<label for="exampleInputPassword1">Password</label>-->
+    <input type="text" class="form-control" id="firstname" placeholder="Enter First Name" name="firstname">
+	<small id="emailPassword" class="form-text text-muted">First Name</small>
+  </div>
+   <div class="form-group">
+    <!--<label for="exampleInputPassword1">Password</label>-->
+    <input type="lastname" class="form-control" id="exampleInputPassword1" placeholder="Enter Last Name" name="lastname">
+	<small id="emailPassword" class="form-text text-muted">Last Name</small>
+  </div>
+    <div class="form-group">
+    <!--<label for="exampleInputPassword1">Password</label>-->
+    <input type="password" class="form-control" id="password1" placeholder="Enter Password" name="password1">
+	<small id="emailPassword" class="form-text text-muted">Password</small>
+  </div>
+    <div class="form-group">
+    <!--<label for="exampleInputPassword1">Password</label>-->
+    <input type="password" class="form-control" id="password2" placeholder="Repeat Password" name="password2">
+	<small id="emailPassword" class="form-text text-muted">Repeat Password</small>
+  </div>   
+
+<!---------------------------------------------------------------->
+
+
 	  
 	  
 	  
@@ -103,14 +151,15 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>-->
-      <button class="btn btn-lg btn-primary btn-block" type="submit" name="register" >Register Now</button>
-	  <button class="btn btn-lg btn-primary btn-block" type="submit" name="login" onclick="newPage(0)" >Login</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+	  <button class="btn btn-outline-success btn-block" type="submit" name="register" >Register Now</button>
+	  <a href="login1.php" class="btn btn-outline-success btn-block" role="button">Login</a>
+
+       <p class="mt-5 mb-3 text-muted" align="center">--- Wipro Manage Services ---<br>©2019</p>
 	  
 	  <!------------------------honeypot---------------->
-        <input name="honeypot1" type="text" hidden/>
+        <input name="honeypot2" type="text" hidden/>
       <!------------------------------------------------>
-	  
+	  </div></div></div>
     </form>
   </body>
 </html>

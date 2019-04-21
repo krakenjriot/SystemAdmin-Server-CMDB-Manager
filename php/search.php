@@ -47,6 +47,7 @@ $html .= '</tr>';
 // Get the Search
 $search_string = preg_replace("/[^A-Za-z0-9.:-]/", " ", $_POST['query']);
 $search_string = $test_db->real_escape_string($search_string);
+$search_string = trim(preg_replace('/[\t\n\r\s]+/', ' ', $search_string));
 
 
 

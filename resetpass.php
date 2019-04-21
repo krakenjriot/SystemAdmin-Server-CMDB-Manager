@@ -116,7 +116,7 @@ $query = "";
 					  
 									  
 						  <button class="btn btn-outline-success btn-block" type="submit" name="resetpass" >Register Now</button>
-					  <a href="login1.php" class="btn btn-outline-success btn-block" role="button">Login</a>
+					  <a href="logout.php" class="btn btn-outline-success btn-block" role="button">Cancel</a>
 
 					   <p class="mt-5 mb-3 text-muted" align="center">--- Wipro Manage Services ---<br>©2019</p>
 

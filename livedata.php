@@ -227,5 +227,6 @@ echo $filenameDirPath;
 					    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 					    <script src="bootstrap/js/popper.min.js"></script>
 					    <script src="bootstrap/js/bootstrap.min.js"></script>
+						 <p class="mt-5 mb-3 text-muted" align="center">--- Wipro Manage Services ---<br>©2019</p>
 					  </body>
 					</html>

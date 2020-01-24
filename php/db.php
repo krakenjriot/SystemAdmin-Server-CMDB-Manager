@@ -1,6 +1,6 @@
 <?php
 // Credentials
-$dbhost = "10.48.21.55";
+$dbhost = "x.x.x.x";
 $dbname = "hwinv";
 $dbuser = "root";
 $dbpass = "";
